@@ -1,0 +1,161 @@
+:root {
+    --background: #0F2F3C;
+    --subtitle-section-color: #0071CE;
+  }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Spartan', sans-serif;    
+    background: linear-gradient(0deg, steelblue 40%, rgb(41, 77, 107) 60%, black 95%);
+
+}
+
+.container{
+    /*max-width: 1400px;*/
+    min-height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: 
+    "nav main main main main main main main"
+    "nav main main main main main main main"
+    "nav main main main main main main main"
+    "nav main main main main main main main"
+    "nav footer footer footer footer footer footer footer";
+}
+.navbar{
+    grid-area: nav;
+    background-color: white;
+}
+.main{
+    min-height: 500px;
+    grid-area: main;
+    padding: 10%;
+}
+.footer{
+    grid-area: footer;
+    background-color: white;
+}
+
+.section_subtitle{
+    color: var(--subtitle-section-color);
+}
+.form_registro{
+    background-color: white;
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 4.5em 3em;
+    border-radius: 10px;
+    box-shadow: 0px 5x 10px -5px rgb(0,0,0,.5);
+    text-align: center;
+    display: grid;
+    gap: 2.5em
+}
+.form_group{
+    position: relative;
+    --color: #5757577e;
+}
+.form_input{
+    width: calc(100%-2.5rem);
+    font-size: inherit;
+    font-size: 1rem;
+    color: #706c6c;
+    padding: .6em .3em;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--color);
+}
+
+.form_label{
+    color: var(--color);
+    cursor: pointer; 
+    position: absolute;
+    top:0;
+    left: 5px
+}
+
+.form_submit{
+    background-color: #3866f2;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: .8em 0;
+    border: none;
+    border-radius: .5em;
+}
+
+.form_line{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: scale(0);
+    transform-origin: left bottom;
+}
+
+.form_input:not(:placeholder-shown) + .form_label,
+.form_input:focus + .form_label{
+    color: cornflowerblue;
+    transform: translateY(-12px) scale(.8);
+    transform-origin: top left;
+    transition-duration: .7s;
+}
+
+.input_icon_prefix {
+    position: absolute;
+    width: 2rem;
+    font-size: 1.5rem;
+    top: 0.5rem;
+}
+
+.input_icon_prefix ~ input{
+    margin-left: 3rem
+}
+.input_icon_prefix ~ label{
+    margin-left: 4rem
+}
+
+.card_container{
+    background-color: white;
+    width: 90%;
+    /* max-width: 400px; */
+    margin: 0 auto;
+    padding: 4.5em 3em;
+    border-radius: 10px;
+    box-shadow: 0px 5x 10px -5px rgb(0,0,0,.5);
+    text-align: center;
+    display: grid;
+    gap: 2.5em
+}
+
+.section_content{
+    display: flex;
+    margin: 0 auto;
+}
+.controls{
+    display: flex;
+    margin: 0 auto;
+}
+
+.btn_control{
+    background-color: #3866f2;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: .8em 0;
+    border: none;
+    border-radius: .5em;
+}
+
+
+.btn_control.prev{
+    background-color: white;
+    color: #3866f2;
+    border: .6px solid #3866f2;
+    border-radius: .5em;
+}
