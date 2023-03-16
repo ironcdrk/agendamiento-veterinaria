@@ -3,6 +3,8 @@
     <meta charset="utf-8">
     <title>Veterinaria JS</title>
     <link href="css/estilos.css" rel="stylesheet" type="text/css">
+    <link href="css/calendar.css" rel="stylesheet" type="text/css">
+    <link href="css/smallcalendar.css" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/c4e8793520.js" crossorigin="anonymous"></script>
    
   </head>
@@ -37,9 +39,9 @@
                         
                     </div>
                     <div class="controls">
-                        <input type="button" class="btn_control prev" value="Anterior">
+                        <input type="button" class="btn_control prev" id="prev-2" value="Anterior">
 
-                        <input type="button" class="btn_control" value="Siguiente">
+                        <input type="button" class="btn_control" id="next-2" value="Siguiente">
                     </div>    
                 </div>
 
@@ -48,14 +50,84 @@
                 <div class="card_container">            
                     <h2 class="form_title">Consulta veterinaria</h2>
                     <h4 class="section_subtitle">Escoge la fecha y hora de la cita</h4>
-                    <div class="section-content">
-
-                    </div>
+                    <div id="appointmentdate-container"  class="section-content">
+                        
+                        <div class="calendar-left">
+                                                                       
+                            <div class="num-date">27</div>
+                            <!--num-date -->
+                            <div class="day">JUEVES</div>
+                            <!--day -->
+                            <div class="current-events">Citas disponibles</div>
+                            <br/>
+                            <div class="horarios">
+                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 08:00</button>
+                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 08:30</button>
+                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 09:00</button>
+                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 09:30</button>
+                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 10:00</button>
+                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 10:30</button>
+                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 11:00</button>
+                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 11:30</button>
+                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 12:00</button>
+                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 12:30</button>
+                            </div>                            
+                        </div>     
+                        <!-- calendar-left -->
+                        <div class="calendar">
+                            <div class="calendar__picture">
+                              <h2>18, Sunday</h2>
+                              <h3>November</h3>
+                            </div>
+                            <div class="calendar__date">
+                              <div class="calendar__day">M</div>
+                              <div class="calendar__day">T</div>
+                              <div class="calendar__day">W</div>
+                              <div class="calendar__day">T</div>
+                              <div class="calendar__day">F</div>
+                              <div class="calendar__day">S</div>
+                              <div class="calendar__day">S</div>
+                              <div class="calendar__number"></div>
+                              <div class="calendar__number"></div>
+                              <div class="calendar__number"></div>
+                              <div class="calendar__number">1</div>
+                              <div class="calendar__number">2</div>
+                              <div class="calendar__number">3</div>
+                              <div class="calendar__number">4</div>
+                              <div class="calendar__number">5</div>
+                              <div class="calendar__number">6</div>
+                              <div class="calendar__number">7</div>
+                              <div class="calendar__number">8</div>
+                              <div class="calendar__number">9</div>
+                              <div class="calendar__number">10</div>
+                              <div class="calendar__number">11</div>
+                              <div class="calendar__number">12</div>
+                              <div class="calendar__number">13</div>
+                              <div class="calendar__number">14</div>
+                              <div class="calendar__number">15</div>
+                              <div class="calendar__number">16</div>
+                              <div class="calendar__number">17</div>
+                              <div class="calendar__number calendar__number--current">18</div>
+                              <div class="calendar__number">19</div>
+                              <div class="calendar__number">20</div>
+                              <div class="calendar__number">21</div>
+                              <div class="calendar__number">22</div>
+                              <div class="calendar__number">23</div>
+                              <div class="calendar__number">24</div>
+                              <div class="calendar__number">25</div>
+                              <div class="calendar__number">26</div>
+                              <div class="calendar__number">27</div>
+                              <div class="calendar__number">28</div>
+                              <div class="calendar__number">29</div>
+                              <div class="calendar__number">30</div>
+                            </div>
+                          </div>           
+                    </div>      
                     <div class="controls">
-                        <input type="button" class="btn_control prev" value="Anterior">
-
-                        <input type="button" class="btn_control" value="Siguiente">
-                    </div>    
+                        <input type="button" class="btn_control prev" id="prev-3" value="Anterior">
+    
+                        <input type="button" class="btn_control" id="next-3" value="Siguiente">
+                    </div>                  
                 </div>
             </section>
         </div>

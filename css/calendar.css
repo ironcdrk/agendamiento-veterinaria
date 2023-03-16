@@ -1,0 +1,94 @@
+* {
+   --bg-calendar: #0071CE;
+}
+
+.calendar-left {
+    width: 300px;
+    height: 450px;
+    /* border-radius: 20px 0px 0px 20px; */
+
+    border-radius: 20px;
+    background-color: var(--bg-calendar); 
+    /* position: relative; */
+    /* z-index: -1; */
+    /* bottom: 500px; */
+    color: white;
+    justify-self: center;
+  }
+  
+  
+  .num-date {
+    font-size: 150px;
+    width: 50%;
+    margin: 0 auto;
+    font-weight: 700;
+  }
+  
+  .day {
+    width: 50%;
+    margin: 0px auto;
+    font-size: 30px;
+    /* position: relative;
+    bottom: 60px; */
+  }
+  
+  .current-events {
+    font-size: 15px;
+    position: relative;
+    /* margin-left: 25px;
+    bottom: 30px; */
+  }
+  
+  .posts {
+    text-decoration: underline dotted;
+  }
+  .posts:hover{
+    color:#27e879 !important;
+  }
+  
+  .create-event {
+    font-size: 18px;
+    position: relative;
+    margin-top: 30px;
+    margin-left: 25px;
+  }
+  
+  .event-line {
+    width: 90%;
+  }
+  
+  
+  .add {
+    font-size: 25px;
+    position: relative;
+    left: 4px;
+    bottom: 10px;
+  }
+  
+  .add:hover, .create-event:hover, .add-event:hover{
+    color:#27e879 !important;
+    border-color: #27e879 !important;
+  }
+  .horarios{
+    background: white;
+    border: 1;
+    /* position: relative; */
+    height: 50%;
+  }
+  .btn_horario{
+    /* border: 1px solid black; */
+    /* border-radius: 10px; */
+    /* box-shadow: rgba(0, 0, 0, 0.22) 0px 10px 10px; */
+    padding: 10px 4px;
+    margin: 5px 5px;
+    background-color: white;
+    font-size: .9em;
+    border: none;
+  }
+
+  .btn_horario:hover{
+    /* color: #AAAAB1; */
+    color: white;
+    font-weight: 700;
+    background-color: #0071CE;
+  }

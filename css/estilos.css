@@ -136,10 +136,12 @@ body{
 .section_content{
     display: flex;
     margin: 0 auto;
+    position: absolute;
 }
 .controls{
     display: flex;
     margin: 0 auto;
+    gap: 1em;
 }
 
 .btn_control{
@@ -147,7 +149,7 @@ body{
     color: white;
     font-family: inherit;
     font-size: 1rem;
-    padding: .8em 0;
+    padding: .8em .8em;
     border: none;
     border-radius: .5em;
 }
@@ -158,4 +160,67 @@ body{
     color: #3866f2;
     border: .6px solid #3866f2;
     border-radius: .5em;
+}
+
+#dogsbred-container{
+    display: grid;
+    min-width: 0px;
+    grid-template-columns: repeat(auto-fill, 200px);
+}
+
+.radiolabel{
+    display: flex;
+    position: relative;
+    margin: 5px 0;
+    align-items: center;
+}
+
+.radiolabel input{
+    appearance: none;
+    display: none;
+}
+
+.radiolabel span{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    /* background-color: black; */
+    border: 2px solid black;
+    margin-right: 10px;
+
+}
+
+.radiolabel input:checked ~ span::before{
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: green;
+}
+
+.radiolabel input:checked ~ span::after{
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    height: 10px;
+    background-color: green;
+}
+
+.radiolabel input:checked ~ span{
+    transform: translate(0px, -5px) rotate(-50deg);
+    transition: .5s;
+    border: none;
+}
+
+#appointmentdate-container{
+    display: grid;
+    grid-auto-rows: 600px;
+    grid-template-columns: repeat(auto-fit,minmax(min(450px,100%),1fr));
+    /* display: flex;
+    flex-wrap: wrap;
+    gap: 2em; */
 }
