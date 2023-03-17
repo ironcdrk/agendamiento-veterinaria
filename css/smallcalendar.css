@@ -50,7 +50,7 @@
     box-sizing: border-box;
   }
   
-  .calendar__day {
+  .calendar_day {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,11 +59,11 @@
     color: #262626;
 }
     
-    .calendar__day:nth-child(7) {
+    .calendar_day:nth-child(7) {
       color: #ff685d;
     }
   
-  .calendar__number {
+  .calendar_number {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,13 +71,13 @@
     color: #262626;
 }
   
-    .calendar__number:nth-child(7n) {
+    .calendar_number:nth-child(7n) {
       color: #ff685d;
       font-weight: 700;
     }
     
-    .calendar__number--current,
-    .calendar__number:hover {
+    .calendar_number_selected,
+    .calendar_number:hover {
       /* background-color: #009688; */
       background-color: #0071CE;
       color: #fff !important;

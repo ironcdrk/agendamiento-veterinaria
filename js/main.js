@@ -56,8 +56,23 @@ function buildRBDogsBreed(data){
 }
 
 
+const formDogsBreed = document.querySelector("#mascota-form");
+formDogsBreed.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    console.log("submitting..");
+    let dogsbreed=document.querySelector("input[name='dogbreed']:checked");
+    if(dogsbreed) {
+        let dogsbreedVal=dogsbreed.value;
+        console.log(dogsbreedVal);
+        sectionMascota.setAttribute("style","display:none")
+        sectionFechahora.removeAttribute("style");
+    } else {
+        alert('No ha seleccionado ninguna raza');
+    }
+});
+
 let btnPrev2 = document.getElementById("prev-2");
-btnPrev2.addEventListener('click', async function(ev){
+btnPrev2.addEventListener('click', function(ev){
    
     console.log("prev..");
     sectionMascota.setAttribute("style","display:none")
@@ -65,18 +80,18 @@ btnPrev2.addEventListener('click', async function(ev){
     
 });
 
-let btnNext2 = document.getElementById("next-2");
-btnNext2.addEventListener('click', async function(ev){
+// let btnNext2 = document.getElementById("next-2");
+// btnNext2.addEventListener('click', async function(ev){
    
-    console.log("next..");
-    sectionMascota.setAttribute("style","display:none")
-    sectionFechahora.removeAttribute("style");
+//     console.log("next..");
+//     sectionMascota.setAttribute("style","display:none")
+//     sectionFechahora.removeAttribute("style");
     
-});
+// });
 
 
 let btnPrev3 = document.getElementById("prev-3");
-btnPrev3.addEventListener('click', async function(ev){
+btnPrev3.addEventListener('click', function(ev){
    
     console.log("prev..");
     sectionFechahora.setAttribute("style","display:none")
@@ -92,3 +107,16 @@ btnPrev3.addEventListener('click', async function(ev){
 //     sectionFechahora.removeAttribute("style");
     
 // });
+
+const daysnumber = document.querySelectorAll(".calendar_number");
+
+daysnumber.forEach((element, key)=>{
+    element.addEventListener('click', function(ev){
+        daysnumber.forEach((element, key)=>{element.classList.remove("calendar_number_selected");});
+        console.log("seting a day..");
+        console.log(element);
+        document.querySelector(".num_date").innerHTML=element.innerHTML;
+        element.classList.add("calendar_number_selected");
+        
+    });
+});
