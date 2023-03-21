@@ -57,9 +57,9 @@
                         
                         <div class="calendar-left">
                                                                        
-                            <div class="num_date">27</div>
+                            <div class="num_date calendar_lblday"></div>
                             <!--num-date -->
-                            <div class="day">JUEVES</div>
+                            <div class="day calendar_lbldayofweek"></div>
                             <!--day -->
                             <div class="current-events">Citas disponibles</div>
                             <br/>
@@ -78,18 +78,18 @@
                         </div>     
                         <!-- calendar-left -->
                         <div class="calendar">
-                            <div class="calendar__picture">
-                              <h2>18, Sunday</h2>
-                              <h3>November</h3>
+                            <div class="calendar_picture">
+                              <h2><span class="calendar_lblday"></span>, <span class="calendar_lbldayofweek"></span></h2>
+                              <h3 class="calendar_lblmonth"></h3>
                             </div>
-                            <div class="calendar__date">
+                            <div class="calendar_date">
+                              <div class="calendar_day">L</div>
                               <div class="calendar_day">M</div>
-                              <div class="calendar_day">T</div>
-                              <div class="calendar_day">W</div>
-                              <div class="calendar_day">T</div>
-                              <div class="calendar_day">F</div>
+                              <div class="calendar_day">M</div>
+                              <div class="calendar_day">J</div>
+                              <div class="calendar_day">V</div>
                               <div class="calendar_day">S</div>
-                              <div class="calendar_day">S</div>
+                              <div class="calendar_day">D</div>
                               <div class="calendar_number"></div>
                               <div class="calendar_number"></div>
                               <div class="calendar_number"></div>
@@ -110,7 +110,7 @@
                               <div class="calendar_number">15</div>
                               <div class="calendar_number">16</div>
                               <div class="calendar_number">17</div>
-                              <div class="calendar_number calendar_number_selected">18</div>
+                              <div class="calendar_number">18</div>
                               <div class="calendar_number">19</div>
                               <div class="calendar_number">20</div>
                               <div class="calendar_number">21</div>
@@ -129,7 +129,7 @@
                     <div class="controls">
                         <input type="button" class="btn_control prev" id="prev-3" value="Anterior">
     
-                        <input type="button" class="btn_control" id="next-3" value="Siguiente">
+                        <input type="button" class="btn_control" id="next-3" value="Agendar">
                     </div>                  
                 </div>
             </section>

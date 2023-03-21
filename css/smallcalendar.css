@@ -10,77 +10,77 @@
 
   }
   
-  .calendar__picture {
-    position: relative;
-    height: 200px;
-    padding: 20px;
-    color: #fff;
-    /* background: #262626 url("https://www.dogalize.com/wp-content/uploads/2017/06/CACHORROS.jpg") no-repeat center / cover; */
-    /* background: #262626 url("https://cdn.pixabay.com/photo/2016/10/31/14/55/rottweiler-1785760_1280.jpg") no-repeat center / cover;  */
-    background: #262626 url("../assets/img/calendar-dog.jpg") no-repeat center / cover; 
-    text-shadow: 0 2px 2px rgba(#000, 0.2);
-    box-sizing: border-box;
-  }
-    
-  .calendar__picture::before {
-      content: "";
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      position: absolute;
-      background: linear-gradient(to top, rgba(#000, 0.25), rgba(#000, 0.1));
-    }
-    
-    h2 {
-      margin: 0;
-    }
-    
-    h3 {
-      margin: 0;
-      font-weight: 500;
-    }
-  
-  
-  .calendar__date {
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
-    grid-gap: 10px;
-    box-sizing: border-box;
-  }
-  
-  .calendar_day {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 25px;
-    font-weight: 600;
-    color: #262626;
+.calendar_picture {
+  position: relative;
+  height: 200px;
+  padding: 20px;
+  color: #fff;
+  /* background: #262626 url("https://www.dogalize.com/wp-content/uploads/2017/06/CACHORROS.jpg") no-repeat center / cover; */
+  /* background: #262626 url("https://cdn.pixabay.com/photo/2016/10/31/14/55/rottweiler-1785760_1280.jpg") no-repeat center / cover;  */
+  background: #262626 url("../assets/img/calendar-dog.jpg") no-repeat center / cover; 
+  text-shadow: 0 2px 2px rgba(#000, 0.2);
+  box-sizing: border-box;
 }
     
-    .calendar_day:nth-child(7) {
-      color: #ff685d;
-    }
+.calendar_picture::before {
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    background: linear-gradient(to top, rgba(#000, 0.25), rgba(#000, 0.1));
+  }
   
-  .calendar_number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 25px;
-    color: #262626;
+  h2 {
+    margin: 0;
+  }
+  
+  h3 {
+    margin: 0;
+    font-weight: 500;
+  }
+
+
+.calendar_date {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
+  grid-gap: 10px;
+  box-sizing: border-box;
+}
+
+.calendar_day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  font-weight: 600;
+  color: #262626;
+}
+    
+.calendar_day:nth-child(7) {
+  color: #ff685d;
 }
   
-    .calendar_number:nth-child(7n) {
-      color: #ff685d;
-      font-weight: 700;
-    }
-    
-    .calendar_number_selected,
-    .calendar_number:hover {
-      /* background-color: #009688; */
-      background-color: #0071CE;
-      color: #fff !important;
-      font-weight: 700;
-      cursor: pointer;
-    }
+.calendar_number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  color: #262626;
+}
+  
+.calendar_number:nth-child(7n) {
+  color: #ff685d;
+  font-weight: 700;
+}
+
+.calendar_number_selected,
+.calendar_number:hover {
+  /* background-color: #009688; */
+  background-color: #0071CE;
+  color: #fff !important;
+  font-weight: 700;
+  cursor: pointer;
+}

@@ -25,3 +25,7 @@ export function validarCedula(cedula) {
     
   }
 
+export function validaCita(hora,fecha){
+    
+}
+

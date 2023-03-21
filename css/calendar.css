@@ -23,6 +23,10 @@
     margin: 0 auto;
     font-weight: 700;
   }
+
+  .month{
+    text-transform: uppercase;
+  }
   
   .day {
     width: 50%;
@@ -82,7 +86,8 @@
     font-size: .9em;
     border: none;
   }
-
+  
+  .btn_horario_selected,
   .btn_horario:hover{
     color: #0071CE;
     /* color: white; */
