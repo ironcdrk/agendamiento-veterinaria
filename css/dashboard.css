@@ -1,0 +1,102 @@
+.section_container{
+  background-color: white;
+  width: 95%;
+  margin: 0 auto;
+  padding: 4.5em 3em;
+  border-radius: 10px;
+  box-shadow: 0px 5x 10px -5px rgb(0,0,0,.5);
+  text-align: center;
+  display: grid;
+  gap: 2em;
+  grid-template-columns: repeat(auto-fill, 180px);
+}
+.card_citas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 160px;
+    width: 200px;
+    background-color: #315c80;
+    border-radius: 8px;
+    position: relative;
+  }
+
+  .card_citas:hover {
+    transform: scale(1.03);
+  }
+
+  
+  .card_content {
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+    width: 95%;
+    background-color: white;
+    border-radius: 8px;
+  }
+  
+  .card_top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 20%;
+    background-color: white;
+    
+  }
+  
+  .card_middle {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    background-color: #0071CE;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 2em;
+    font-weight: 700;
+    color: white;
+  }
+  
+  .card_bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40%;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+
+  .card_bottom:hover {
+    color: #0071CE;
+    cursor: pointer;
+    transform: scale(1.03);
+  }
+
+  .status_bagde{
+    min-width: 3rem;
+    padding: 0 6px;
+    /* margin-left: 14px; */
+    text-align: center;
+    font-size: .8rem;
+    line-height: 22px;
+    height: 22px;
+    color: #fff;
+    float: right;
+    border-radius: 5px;
+    font-weight: 300;
+  }
+  .available{
+    background-image: linear-gradient(195deg,#66bb6a,#43a047);
+  }
+
+  .nonavailable{
+    background-color: #949393;
+  }
+
+  .reserved{
+    background-color: #0071CE;
+  }
+
+ 

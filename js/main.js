@@ -1,4 +1,4 @@
-import { validarCedula } from './utils.js';
+import { validarCedula, getDatetimestamp } from './utils.js';
 import { addCita } from './odm.js';
 
 const formClient = document.querySelector("#user-form");
@@ -10,7 +10,10 @@ formClient.addEventListener('submit', async function(ev){
     ev.preventDefault();
     console.log("submitting..");
     let cedula=document.querySelector("#usuario").value;
+    let nombre=document.querySelector("#nombre").value;
+    let mascota=document.querySelector("#mascota").value;
     if (validarCedula(cedula)){
+
         sectionUsuario.setAttribute("style","display:none")
         sectionMascota.removeAttribute("style");
         
@@ -18,6 +21,9 @@ formClient.addEventListener('submit', async function(ev){
         buildRBDogsBreed(data['dogsbred']);
 
         localStorage.setItem("cedula", cedula);
+        localStorage.setItem("nombre", nombre);
+        localStorage.setItem("mascota", mascota);
+        document.getElementById("datosgenerales-check").removeAttribute("style");
         
     }else{
         alert("cédula no válida")
@@ -70,6 +76,7 @@ formDogsBreed.addEventListener('submit', function(ev){
         sectionMascota.setAttribute("style","display:none")
         sectionFechahora.removeAttribute("style");
         localStorage.setItem("raza", dogsbreedVal);
+        document.getElementById("datosmascota-check").removeAttribute("style");
     } else {
         alert('No ha seleccionado ninguna raza');
     }
@@ -117,7 +124,7 @@ btnNext3.addEventListener('click', async function(ev){
         const daySelected = parseInt(daySelectedItem.innerHTML);      
         const citatimestamp=getDatetimestamp(daySelected, meses.findIndex((m)=>m===mesSelected)+1, 2023, h,m );
         localStorage.setItem("datetime", citatimestamp);
-        console.log("timestamp => "+citatimestamp);
+        console.log("timestampId => "+citatimestamp);
     }
     else{
         alert("No ha seleccionado una hora");
@@ -125,6 +132,8 @@ btnNext3.addEventListener('click', async function(ev){
     try{
 
         await addCita(localStorage.getItem("datetime"),{ fecha: localStorage.getItem("datetime"), cedula: localStorage.getItem("cedula"), raza: localStorage.getItem("raza")});    
+        document.getElementById("datosmascota-check").removeAttribute("style");
+        localStorage.clear()
     }
     catch(error){
         alert("Su registro no pudo ser guardado");
@@ -204,9 +213,4 @@ function refreshSelectedDate(dia, mes, anio=2023){
 
 }
 
-function getDatetimestamp(dia, mes, anio, hora, minuto){
-    console.log(anio, mes, dia, hora, minuto);
-    const fecha = new Date(anio, mes, dia, hora, minuto);
-    return fecha.getTime();
-}
 

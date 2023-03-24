@@ -2,6 +2,7 @@
   <head>
     <meta charset="utf-8">
     <title>VetJS</title>
+    <link href="css/layout.css" rel="stylesheet" type="text/css">
     <link href="css/estilos.css" rel="stylesheet" type="text/css">
     <link href="css/calendar.css" rel="stylesheet" type="text/css">
     <link href="css/smallcalendar.css" rel="stylesheet" type="text/css">
@@ -11,27 +12,44 @@
   <body>
     <div class="container">
         <div class="navbar">
-
-        </div>
+            <div class="navbar_logo logo">
+                <i class="fa-solid fa-shield-dog"></i>
+                <div class="legend">
+                  <h3>Vet <span>JS</span></h3>
+                </div>
+            </div>
+            <hr>
+              <ul>
+                <li><a href="#"><i class="fa-solid fa-file-pen"></i> Datos Generales<i class="fa-solid fa-check" style="display: none;"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-dog"></i> Datos Paciente</a></li>
+                <li><a href="#"><i class="fa-regular fa-calendar-days"></i> Fecha cita</a></li>
+                <!-- <li><a href="#"></a></li> -->
+              </ul>
+          </div>
         <div class="main">
-            <section id="section_usuario">
-                <form id="user-form" class="form_registro" action="#">
-                    <h2 class="section_title">Consulta veterinaria </h2>
-                    <h4 class="section_subtitle">Ingrese la identificación del dueño</h4>
+            <section id="section_usuario" class="section section_registro">
+                <h2 class="section_title">Consulta veterinaria </h2>
+                <h4 class="section_subtitle">Ingrese los datos personales</h4>
+                <form id="user-form" action="#" class="form_registro">
                     <div class="form_group"> <i class="fa-solid fa-id-card input_icon_prefix"></i>
-                        <input type="text" id="usuario" class="form_input" placeholder=" " value>
+                        <input type="text" id="usuario" class="form_input" placeholder=" " value pattern="[0-9]{10}" minlength="10" required>
                         <label for="usuario" class="form_label">Cédula:</label>
                         <span class="form_line"></span>
                     </div>
-                    <!-- <div class="form_group">
-                        <input type="password" id="password" class="form_input" placeholder=" ">
-                        <label for="password" class="form_label">Contraseña:</label>
+                    <div class="form_group"> <i class="fa-solid fa-user input_icon_prefix"></i>
+                        <input type="text" id="nombre" class="form_input" placeholder=" " value pattern="[\w\s]{4,30}" minlength="4" required>
+                        <label for="nombre" class="form_label">Nombre del dueño:</label>
                         <span class="form_line"></span>
-                    </div> -->
+                    </div>
+                    <div class="form_group"> <i class="fa-solid fa-dog input_icon_prefix"></i>
+                        <input type="text" id="mascota" class="form_input" placeholder=" " value pattern="[A-Za-z]{4,10}" minlength="4" required>
+                        <label for="mascota" class="form_label">Nombre de la mascota:</label>
+                        <span class="form_line"></span>
+                    </div>
                     <input type="submit" id="btn-formusuario" class="form_submit" value="Iniciar">
                 </form>
             </section>
-            <section id="section_mascota" style="display: none;">
+            <section id="section_mascota" class="section" style="display: none;">
                 <!-- <div class="card_container">      -->
                     <form id="mascota-form" class="card_container" action="#">               
                         <h2 class="section_title">Consulta veterinaria</h2>
@@ -49,7 +67,7 @@
                 <!-- </div> -->
 
             </section>
-            <section id="section_fechahora" style="display: none;">
+            <section id="section_fechahora" class="section" style="display: none;">
                 <div class="card_container">            
                     <h2 class="section_title">Consulta veterinaria</h2>
                     <h4 class="section_subtitle">Escoge la fecha y hora de la cita</h4>
@@ -134,9 +152,9 @@
                 </div>
             </section>
         </div>
-        <div class="footer">
+        <!-- <div class="footer">
 
-        </div>
+        </div> -->
         
     </div>
   </body>
