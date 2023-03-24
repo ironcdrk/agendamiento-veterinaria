@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>VetJS</title>
+    <link href="css/layout.css" rel="stylesheet" type="text/css">
+    <link href="css/atencion.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/c4e8793520.js" crossorigin="anonymous"></script>
+   
+  </head>
+  <body>
+    <div class="container">
+        <div class="navbar">
+          <div class="navbar_logo logo">
+              <i class="fa-solid fa-shield-dog"></i>
+              <div class="legend">
+                <h3>Vet <span>JS</span></h3>
+              </div>
+          </div>
+          <hr>
+            <ul>
+              <li><a href="#"><i class="fa-solid fa-table-columns"></i>  Dashboard</a></li>
+              <!-- <li><a href="#"></a></li> -->
+            </ul>
+        </div>
+        <div class="main">
+            <section id="section_paciente" class="section header">
+                <div class="card_datos">
+                    Oreo
+                    Raza
+                </div>     
+                <div class="card_signos">
+                    Frecuencia cardiaca
+                    Peso
+                </div>
+            </section>
+            <section id="section_citas" class="section content">
+                <div class="card_cita">
+                  <!-- <div class="img_examen_frontal" style="display: block;background: url(&quot;https://pruebas-amed-rdacaa.msp.gob.ec/bundles/hcueatencionmedica/images/examen_cuerpo_frontal_femenino.jpg&quot;);position: relative;padding: 0px;width: 200px;height: 492px;">
+                    <canvas style="width: 200px; height: 492px; position: absolute; left: 0px; top: 0px; padding: 0px; border: 0px; opacity: 1;" height="492" width="200"></canvas>
+                    <img class="img_examen_frontal" src="https://pruebas-amed-rdacaa.msp.gob.ec/bundles/hcueatencionmedica/images/examen_cuerpo_frontal_femenino.jpg" usemap="#regionsMapFrontal" style="opacity: 0;position: absolute;left: 0px;top: 0px;padding: 0px;border: 0px;/* display: none; */">
+                  </div> -->
+                    <div class="examenfisico">
+                        <div class="dogsbody">
+                          <canvas id="regionsMapCanvas" style="position: absolute; left: 0px; top: 0px; padding: 0px; border: 0px; opacity: 1;" height="540" width="500"></canvas>
+                          <img id="scream" src="../assets/img/dogsbody.jpg" alt="Dogs body" usemap="#regionsMap">
+                        </div> 
+                        <map name="regionsMap" id="regionsMap">
+                          <area class="area" shape="rect" id="craneal" coords="500,50,300,200" href="#!" alt="Cráneo" title="Cráneo">
+                          <!-- <area class="area" shape="rect" id="vertebral" coords="60,12,128,63" href="#!" alt="Lumbar" title="Lumbar">
+                          <area class="area" shape="rect" id="abdominal" coords="50,285 ,140,485" href="#!" alt="Abdomen" title="Abdomen">
+                          <area class="area" shape="rect" id="extremidades delanteras" coords="135,95 ,175,285" href="#!" alt="Extremidades delanteras" title="Extremidades delantera">
+                          <area class="area" shape="rect" id="extremidades posteriores" coords="55,220, 143,260" href="#!" alt="Extremidades posteriores" title="Extremidades posteriores">
+                          <area class="area" shape="rect" id="cola" coords="63,92,136,145" href="#!" alt="Cola" title="Cola"> -->
+                        </map>
+                        
+                    </div>
+                    <div class="medicaldata">
+
+                    </div>
+                </div>     
+            </section>
+        </div>
+        
+    </div>
+  </body>
+
+  <script type="module" src="js/atencion.js"></script>
+</html>

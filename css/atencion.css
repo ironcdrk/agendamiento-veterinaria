@@ -28,7 +28,19 @@
   }
 
   .dogsbody{
+    display: block;
     background: url("../assets/img/dogsbody.jpg");
+    position: relative;
     width: 500px;
     height: 540px;
+    padding: 0;
+  }
+
+  .dogsbody img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    border: 0;    
+    opacity: 0;
   }
