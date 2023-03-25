@@ -29,48 +29,72 @@
             </section>
             <section id="section_paciente" class="section header">
                 <div class="card_datos">
-                    Oreo
-                    Raza
+                  <fieldset class="panel_data">
+                    <legend>Datos generales</legend>
+                    <label>Dueño:</label>
+                    <label>---</label>
+                    <label>Nombre mascota:</label>
+                    <label>---</label>
+                  </fieldset> 
                 </div>     
                 <div class="card_signos">
-                    Frecuencia cardiaca
-                    Peso
+                  <fieldset class="panel_data">
+                    <legend>Datos clínicos</legend>
+                    <label>Temperatura:</label>
+                      <div class="form_group"> <i class="fa-solid fa-temperature-high"></i>
+                        <input type="text" id="temperatura" class="form_input" placeholder=" " value="" pattern="[0-9]{2}" min="36" max="40" required="">
+                        <label for="temperatura" class=" form_label label_clinico">Cº</label>
+                        <span class="form_line"></span>
+                    </div>
+                    <label>Peso:</label>
+                      <div class="form_group"> <i class="fa-solid fa-scale-unbalanced-flip"></i>
+                        <input type="text" id="peso" class="form_input" placeholder=" " value="" pattern="[0-9]{2}" min="2" max="80" required="">
+                        <label for="peso" class=" form_label label_clinico">Kg</label>
+                        <span class="form_line"></span>
+                      </div>
+                  </fieldset>
+                    
+                    
                 </div>
             </section>
             <section id="section_citas" class="section content">
                 <div class="examenfisico">
                     <div class="dogsbody">
+                      <h1>Examen físico</h1><br>
                       <canvas id="regionsMapCanvas" style="position: absolute; left: 0px; top: 0px; padding: 0px; border: 0px;opacity: 1;" height="540" width="500"></canvas>
                       <img id="scream" src="../assets/img/dogsbody.jpg" alt="Dogs body" usemap="#regionsMap">
                     
                       <map name="regionsMap" id="regionsMap">
-                        <area class="area" shape="rect" id="craneal" coords="400,0,500,200" data-coords="300,0,200,200" href="#!" alt="Cráneo" title="Cráneo">
+                        <area class="area" shape="rect" id="craneal" coords="400,20,500,200" data-coords="300,20,200,200" href="#!" alt="Cráneo" title="Cráneo">
                         <area class="area" shape="rect" id="vertebral" coords="80,150,330,210" data-coords="80,150,250,60" href="#!" alt="Lumbar" title="Lumbar">
                         <area class="area" shape="rect" id="abdominal" coords="80,210,380,280" data-coords="80,210,300,70" href="#!" alt="Abdomen" title="Abdomen">
                         <area class="area" shape="rect" id="extremidades delanteras" coords="190,320,370,520" data-coords="200,320,160,190" href="#!" alt="Extremidades delanteras" title="Extremidades delanteras">
                         <area class="area" shape="rect" id="extremidades posteriores" coords="0,320,170,480" data-coords="10,320,160,160" href="#!" alt="Extremidades posteriores" title="Extremidades posteriores">
                         <area class="area" shape="rect" id="cola" coords="0,250,70,400" data-coords="10,180,80,155" href="#!" alt="Cola" title="Cola">
-                      </map>                    </div> 
-                    
+                      </map>                    
+                    </div>                     
                 </div>
                 <div class="medicaldata">
                   <form id="examen-form" action="#" class="form_examen"></form>
                     <fieldset>
-                      <legend>Cráneo</legend>
+                      <legend id="examenfisico-title">Cráneo</legend>
                       <div class="form_group"> <i class="fa-solid fa-dog input_icon_prefix"></i>
                         <textarea rows="6" id="examenfisico" class="form_input" style="resize: none;" name="examenfisico" required maxlength="2000" placeholder=" "></textarea>
                         <label for="examenfisico" class="form_label">Descripción:</label>
                       </div>
+                      <button id="btn-formexamen" class="btn_atencion" type="submit" name="action">
+                        <i class="fa-solid fa-floppy-disk"></i> Guardar
+                      </button>
                     </fieldset> 
                   </form>
-                   
+                </div>  
             </section>
             <div class="btnlogin">
               Logout
               <a class="btn-floating">
                   <i class="fa-solid fa-right-to-bracket"></i>
               </a>
-          </div>
+            </div>
         </div>
         
     </div>

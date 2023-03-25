@@ -1,5 +1,5 @@
 import { validarCedula, getDatetimestamp } from './utils.js';
-import { addCita } from './odm.js';
+import { addAtencion } from './odm.js';
 
 const formClient = document.querySelector("#user-form");
 const sectionMascota = document.getElementById("section_mascota");
@@ -130,8 +130,13 @@ btnNext3.addEventListener('click', async function(ev){
         alert("No ha seleccionado una hora");
     }
     try{
-
-        await addCita(localStorage.getItem("datetime"),{ fecha: localStorage.getItem("datetime"), cedula: localStorage.getItem("cedula"), raza: localStorage.getItem("raza")});    
+        await addAtencion(localStorage.getItem("datetime"),{ 
+            fecha: localStorage.getItem("datetime"), 
+            cedula: localStorage.getItem("cedula"), 
+            raza: localStorage.getItem("raza"),
+            nombre: localStorage.getItem("nombre"),
+            mascota: localStorage.getItem("mascota"),
+        });   
         document.getElementById("datosmascota-check").removeAttribute("style");
         localStorage.clear()
     }

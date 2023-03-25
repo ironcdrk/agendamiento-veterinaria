@@ -21,12 +21,14 @@
 
   .card_datos{
     display: flex;
+    flex-direction: column;
     flex-grow: 1;
     /* font-family: 'Bangers', cursive; */
   }
 
   .card_signos{
     flex-grow: 1;
+    flex-direction: column;
     /* font-family: 'Bangers', cursive; */
   }
 
@@ -37,6 +39,7 @@
     width: 500px;
     height: 540px;
     padding: 0;
+    color: var(--bluecolor);
   }
 
   .dogsbody img {
@@ -78,4 +81,34 @@ legend {
 	font-weight: bold;
 	padding: 6px 8px;
 	width: auto;
+}
+
+.panel_data{
+  position: relative;
+  padding: 20px 0;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+.label_clinico{
+  left: 35px !important;
+  color: var(--color);
+  cursor: pointer; 
+  position: absolute;
+  top:0;
+}
+
+.btn_atencion{
+  background-color: var(--bluebtn);
+  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.8em 0.8em;
+  border: none;
+  border-radius: 0.5em;
 }

@@ -1,5 +1,5 @@
 
-import { openCita } from './odm.js';
+import { openAtencion } from './odm.js';
 import { getDatetimestamp } from './utils.js';
 
 const btnCita = document.querySelectorAll(".card_bottom");
@@ -12,6 +12,6 @@ btnCita.forEach((element, key)=>{
         const m = horaSelected.split(':')[1];
         const fechaActual = new Date();
         const id = getDatetimestamp( fechaActual.getDate() , fechaActual.getMonth()+1, fechaActual.getFullYear(), h, m);
-        openCita(id);
+        openAtencion(id);
     });
 });

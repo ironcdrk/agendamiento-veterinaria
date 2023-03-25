@@ -8,24 +8,29 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-export async function addCita(id, citaObj){
-    // addDoc(collection(db,"citas"), {
-    //     citaObj
-    // });
-    await setDoc(doc(db, "citas", id), {
+export async function addAtencion(id, citaObj){
+    
+    await setDoc(doc(db, "atencion", id), {
         citaObj
     });
 }
 
-export async function openCita(id){
+export async function saveAtencion(id, citaObj){
+    
+    await setDoc(doc(db, "historia", id), {
+        citaObj
+    });
+}
+
+export async function openAtencion(id){
     try {
         // console.log(db.collection('citas').doc(id).get());
         // const docRef = doc(db, "citas", id);
-        const docSnap = await getDoc(doc(db, "citas", id.toString()));
+        const docSnap = await getDoc(doc(db, "atencion", id.toString()));
         if (docSnap.exists()) {
             console.log("Document data:", docSnap.data());
+            
           } else {
-            // doc.data() will be undefined in this case
             console.log("No such document!");
           }
     } catch(error) {
