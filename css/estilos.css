@@ -1,7 +1,6 @@
 
-
 .section_subtitle{
-    color: var(--subtitle-section-color);
+    color: var(--bluecolor);
 }
 .section_registro{
     background-color: white;
@@ -49,8 +48,7 @@
   }
 
 .form_input{
-    width: calc(100%-2.5rem);
-    font-size: inherit;
+    width: calc(100% - 3rem);
     font-size: 1rem;
     color: #706c6c;
     padding: .6em .3em;
@@ -68,7 +66,7 @@
 }
 
 .form_submit{
-    background-color: #3866f2;
+    background-color: var(--bluebtn);
     color: white;
     font-family: inherit;
     font-size: 1rem;
@@ -104,6 +102,9 @@
 .input_icon_prefix ~ input{
     margin-left: 3rem
 }
+.input_icon_prefix ~ textarea{
+    margin-left: 3rem
+}
 .input_icon_prefix ~ label{
     margin-left: 3rem
 }
@@ -133,7 +134,7 @@
 }
 
 .btn_control{
-    background-color: #3866f2;
+    background-color: var(--bluebtn);
     color: white;
     font-family: inherit;
     font-size: 1rem;
@@ -145,8 +146,8 @@
 
 .btn_control.prev{
     background-color: white;
-    color: #3866f2;
-    border: .6px solid #3866f2;
+    color: var(--bluebtn);
+    border: .6px solid var(--bluebtn);
     border-radius: .5em;
 }
 

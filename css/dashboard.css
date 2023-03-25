@@ -50,7 +50,7 @@
     justify-content: center;
     align-items: center;
     height: 40%;
-    background-color: #0071CE;
+    background-color: var(--bluecolor);
     padding-left: 15px;
     padding-right: 15px;
     font-size: 2em;
@@ -69,7 +69,7 @@
 
 
   .card_bottom:hover {
-    color: #0071CE;
+    color: var(--bluecolor);
     cursor: pointer;
     transform: scale(1.03);
   }
@@ -96,7 +96,7 @@
   }
 
   .reserved{
-    background-color: #0071CE;
+    background-color: var(--bluecolor);
   }
 
  
