@@ -1,10 +1,40 @@
 import { validarCedula, getDatetimestamp } from './utils.js';
-import { addAtencion } from './odm.js';
+import { addAtencion, addCita } from './odm.js';
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js';
+
 
 const formClient = document.querySelector("#user-form");
 const sectionMascota = document.getElementById("section_mascota");
 const sectionUsuario = document.getElementById("section_usuario");
 const sectionFechahora = document.getElementById("section_fechahora");
+
+
+const auth = getAuth();
+
+
+async function initSession(){
+    try{
+        const provider = new GoogleAuthProvider();
+        return await signInWithPopup(auth,provider);
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+const loginButton = document.querySelector('#btnloginGoogle');
+
+loginButton.addEventListener('click', function(ev){
+    initSession();
+});
+
+onAuthStateChanged(auth, function(user){
+    if(user){
+        window.location="dashboard.html";
+    }
+});
+
+
 
 formClient.addEventListener('submit', async function(ev){
     ev.preventDefault();
@@ -91,15 +121,6 @@ btnPrev2.addEventListener('click', function(ev){
     
 });
 
-// let btnNext2 = document.getElementById("next-2");
-// btnNext2.addEventListener('click', async function(ev){
-   
-//     console.log("next..");
-//     sectionMascota.setAttribute("style","display:none")
-//     sectionFechahora.removeAttribute("style");
-    
-// });
-
 
 let btnPrev3 = document.getElementById("prev-3");
 btnPrev3.addEventListener('click', function(ev){
@@ -130,18 +151,25 @@ btnNext3.addEventListener('click', async function(ev){
         alert("No ha seleccionado una hora");
     }
     try{
-        await addAtencion(localStorage.getItem("datetime"),{ 
+        await addCita(localStorage.getItem("datetime"),{ 
             fecha: localStorage.getItem("datetime"), 
             cedula: localStorage.getItem("cedula"), 
             raza: localStorage.getItem("raza"),
             nombre: localStorage.getItem("nombre"),
             mascota: localStorage.getItem("mascota"),
         });   
-        document.getElementById("datosmascota-check").removeAttribute("style");
+        document.getElementById("datosfecha-check").removeAttribute("style");
         localStorage.clear()
+        const modal = document.getElementById("modalBox");
+        modal.style.display = "block";
+        setTimeout(() => {
+            modal.style.display = "none";
+            window.location="/";
+          }, 3000);
     }
     catch(error){
         alert("Su registro no pudo ser guardado");
+        console.log(error);
     }
 });
 
@@ -181,41 +209,39 @@ console.log("mes: " + meses[fecha.getMonth()]);
 
 // añadir estilo a fecha actual
 const diasCalendario= document.querySelectorAll(".calendar_number");
-diasCalendario.forEach((element, key)=>{
+diasCalendario.forEach((element)=>{
     if(element.innerHTML==fecha.getDate()){
         element.classList.add('calendar_number_selected');
     }
 });
 
 const diaActual= document.querySelectorAll(".calendar_lblday");
-diaActual.forEach((element, key)=>{
+diaActual.forEach((element)=>{
     element.innerHTML=fecha.getDate();
 });
 const diaSemanaActual= document.querySelectorAll(".calendar_lbldayofweek");
-diaSemanaActual.forEach((element, key)=>{
+diaSemanaActual.forEach((element)=>{
     element.innerHTML=dias[fecha.getDay()];
 });
 const mesActual= document.querySelectorAll(".calendar_lblmonth");
-mesActual.forEach((element, key)=>{
+mesActual.forEach((element)=>{
     element.innerHTML=meses[fecha.getMonth()];
 });
 
-function refreshSelectedDate(dia, mes, anio=2023){
-    const fecha = new Date(anio, mes, dia);
-    const diaActual= document.querySelectorAll(".calendar_lblday");
-    diaActual.forEach((element, key)=>{
-        element.innerHTML=dia;
-    });
-    const diaSemanaActual= document.querySelectorAll(".calendar_lbldayofweek");
-    let index = dias[fecha.getDay()+1] ? fecha.getDay()+1 : 0;
-    diaSemanaActual.forEach((element, key)=>{
-        element.innerHTML=dias[index];
-    });
-    const mesActual= document.querySelectorAll(".calendar_lblmonth");
-    mesActual.forEach((element, key)=>{
-        element.innerHTML=meses[mes];
-    });
+// function refreshSelectedDate(dia, mes, anio=2023){
+//     const fecha = new Date(anio, mes, dia);
+//     const diaActual= document.querySelectorAll(".calendar_lblday");
+//     diaActual.forEach((element, key)=>{
+//         element.innerHTML=dia;
+//     });
+//     const diaSemanaActual= document.querySelectorAll(".calendar_lbldayofweek");
+//     let index = dias[fecha.getDay()+1] ? fecha.getDay()+1 : 0;
+//     diaSemanaActual.forEach((element, key)=>{
+//         element.innerHTML=dias[index];
+//     });
+//     const mesActual= document.querySelectorAll(".calendar_lblmonth");
+//     mesActual.forEach((element, key)=>{
+//         element.innerHTML=meses[mes];
+//     });
 
-}
-
-
+// }

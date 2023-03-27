@@ -20,9 +20,9 @@
             </div>
             <hr>
               <ul>
-                <li><a href="#"><i class="fa-solid fa-file-pen"></i> Datos Generales<i class="fa-solid fa-check" style="display: none;"></i></a></li>
-                <li><a href="#"><i class="fa-solid fa-dog"></i> Datos Paciente</a></li>
-                <li><a href="#"><i class="fa-regular fa-calendar-days"></i> Fecha cita</a></li>
+                <li><a href="#"><i class="fa-solid fa-file-pen"></i> Datos Generales<i id="datosgenerales-check" class="fa-solid fa-check" style="display: none;"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-dog"></i> Datos Paciente<i id="datosmascota-check" class="fa-solid fa-check" style="display: none;"></i></a></li>
+                <li><a href="#"><i class="fa-regular fa-calendar-days"></i> Fecha cita<i id="datosfecha-check" class="fa-solid fa-check" style="display: none;"></i></a></li>
                 <!-- <li><a href="#"></a></li> -->
               </ul>
           </div>
@@ -151,7 +151,7 @@
                     </div>                  
                 </div>
             </section>
-            <div class="btnlogin">
+            <div class="btnlogin" id="btnloginGoogle">
                 Login
                 <a class="btn-floating">
                     <i class="fa-solid fa-right-to-bracket"></i>
@@ -162,6 +162,19 @@
 
         </div> -->
         
+    </div>
+    <div id="modalBox" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Atención</h2>
+          </div>
+          <div class="modal-body">          
+          <p>Registro guardado exitosamente  <i class="fa-solid fa-square-check"></i></p>
+          </div>
+        </div>
+      
     </div>
   </body>
 

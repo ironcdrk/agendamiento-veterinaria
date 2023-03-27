@@ -32,29 +32,32 @@
                   <fieldset class="panel_data">
                     <legend>Datos generales</legend>
                     <label>Dueño:</label>
-                    <label>---</label>
+                    <label id="nombre">---</label>
                     <label>Nombre mascota:</label>
-                    <label>---</label>
+                    <label id="mascota">---</label>
                   </fieldset> 
                 </div>     
                 <div class="card_signos">
-                  <fieldset class="panel_data">
-                    <legend>Datos clínicos</legend>
-                    <label>Temperatura:</label>
-                      <div class="form_group"> <i class="fa-solid fa-temperature-high"></i>
-                        <input type="text" id="temperatura" class="form_input" placeholder=" " value="" pattern="[0-9]{2}" min="36" max="40" required="">
-                        <label for="temperatura" class=" form_label label_clinico">Cº</label>
-                        <span class="form_line"></span>
-                    </div>
-                    <label>Peso:</label>
-                      <div class="form_group"> <i class="fa-solid fa-scale-unbalanced-flip"></i>
-                        <input type="text" id="peso" class="form_input" placeholder=" " value="" pattern="[0-9]{2}" min="2" max="80" required="">
-                        <label for="peso" class=" form_label label_clinico">Kg</label>
-                        <span class="form_line"></span>
+                  <form id="signosvitales-form" action="#" class="form_examen">
+                    <fieldset class="panel_data">
+                      <legend>Datos clínicos</legend>
+                      <label>Temperatura:</label>
+                        <div class="form_group"> <i class="fa-solid fa-temperature-high"></i>
+                          <input type="text" id="temperatura" class="form_input" placeholder=" " value="" pattern="[0-9]{2}" min="36" max="40" required="">
+                          <label for="temperatura" class=" form_label label_clinico">Cº</label>
+                          <span class="form_line"></span>
                       </div>
-                  </fieldset>
-                    
-                    
+                      <label>Peso:</label>
+                        <div class="form_group"> <i class="fa-solid fa-scale-unbalanced-flip"></i>
+                          <input type="text" id="peso" class="form_input" placeholder=" " value="" pattern="[0-9]{2}" min="2" max="80" required="">
+                          <label for="peso" class=" form_label label_clinico">Kg</label>
+                          <span class="form_line"></span>
+                        </div>
+                    </fieldset>
+                    <button id="btn-formsignosvitales" class="btn_atencion" type="submit">
+                      <i class="fa-solid fa-floppy-disk"></i> Guardar
+                    </button>
+                  </form>
                 </div>
             </section>
             <section id="section_citas" class="section content">
@@ -75,21 +78,24 @@
                     </div>                     
                 </div>
                 <div class="medicaldata">
-                  <form id="examen-form" action="#" class="form_examen"></form>
+                  <form id="examen-form" action="#" class="form_examen">
                     <fieldset>
                       <legend id="examenfisico-title">Cráneo</legend>
                       <div class="form_group"> <i class="fa-solid fa-dog input_icon_prefix"></i>
-                        <textarea rows="6" id="examenfisico" class="form_input" style="resize: none;" name="examenfisico" required maxlength="2000" placeholder=" "></textarea>
+                        <textarea rows="6" id="examenfisico" class="form_input" style="resize: none;" name="examenfisico" required minlength=10 maxlength=2000 placeholder=" "></textarea>
                         <label for="examenfisico" class="form_label">Descripción:</label>
                       </div>
-                      <button id="btn-formexamen" class="btn_atencion" type="submit" name="action">
+                      <button id="btn-formexamen" class="btn_atencion" type="submit">
                         <i class="fa-solid fa-floppy-disk"></i> Guardar
                       </button>
                     </fieldset> 
                   </form>
+                  <button id="btn-finatencion" class="btn_atencion" type="button">
+                    <i class="fa-solid fa-notes-medical"></i> Finalizar atención
+                  </button>
                 </div>  
             </section>
-            <div class="btnlogin">
+            <div class="btnlogin" id="btncloseSession">
               Logout
               <a class="btn-floating">
                   <i class="fa-solid fa-right-to-bracket"></i>
@@ -98,6 +104,20 @@
         </div>
         
     </div>
+    
+    <div id="modalBox" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>Atención</h2>
+        </div>
+        <div class="modal-body">          
+        <p>Registro guardado exitosamente  <i class="fa-solid fa-square-check"></i></p>
+        </div>
+      </div>
+    
+  </div>
   </body>
 
   <script type="module" src="js/atencion.js"></script>
