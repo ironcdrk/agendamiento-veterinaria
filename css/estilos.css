@@ -152,8 +152,7 @@
 
 #dogsbred-container{
     display: grid;
-    min-width: 0px;
-    grid-template-columns: repeat(auto-fill, 200px);
+    grid-template-columns: repeat(auto-fill, 250px);
 }
 
 .radiolabel{
