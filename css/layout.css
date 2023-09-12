@@ -51,9 +51,13 @@ body{
 }
 .servicios{
   grid-area: serv;
-  display: flex;
+  /*display: flex; */
 /*   padding: 5% 10%;
   justify-content: space-around; */
+  display: grid;
+  grid-auto-flow: dense;
+  /* grid-auto-rows: 25rem; */
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
 }
 .paquetes{
   grid-area: paq;
@@ -336,7 +340,11 @@ hr{
   position: relative;
   display: inline-block;
   text-align: center;
-  min-width: 30px;
+  max-width: 460px;
+}
+.infographic img{
+  height:100%;
+  width:100%;
 }
 .infographic .title{
   position: absolute;
