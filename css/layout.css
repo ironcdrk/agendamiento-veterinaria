@@ -4,6 +4,11 @@
 :root {
     --bluebtn: #3866f2;
     --bluecolor: #0071CE;
+    --bluegradient: rgba(25, 131, 223, 0.75);
+    --greengradient: rgba(71, 223, 25, 0.75);
+    --pinkgradient: rgba(223, 25, 213, 0.75);
+    --yellowgradient:  rgba(220, 223, 25, 0.75);
+    --orangegradient:   rgba(223, 109, 25, 0.75);
   }
 * {
     margin: 0;
@@ -342,6 +347,24 @@ hr{
   text-align: center;
   max-width: 460px;
 }
+
+.infographic.bluegd {
+  background: var(--bluegradient);
+}
+
+.infographic.greengd {
+  background: var(--greengradient);
+}
+.infographic.pinkgd {
+  background: var(--pinkgradient);
+}
+.infographic.yellowgd {
+  background: var(--yellowgradient);
+}
+.infographic.orangegd {
+  background: var(--orangegradient);
+}
+
 .infographic img{
   height:100%;
   width:100%;
@@ -349,7 +372,7 @@ hr{
 .infographic .title{
   position: absolute;
   top: 10px;
-  background: rgba(25, 131, 223, 0.75);
+  background: inherit;
   color: white;
   font-size: 2rem;
   font-weight: bold;
@@ -366,7 +389,7 @@ hr{
   top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(25, 131, 223, 0.75);
+  background: inherit;
   color: white;
   font-size: 1.2rem;
   font-weight: bold;
