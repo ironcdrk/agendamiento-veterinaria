@@ -4,6 +4,8 @@
     <title>VetJS</title>
     <link href="css/layout.css" rel="stylesheet" type="text/css">
     <link href="css/dashboard.css" rel="stylesheet" type="text/css">
+    <link href="css/colors.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/c4e8793520.js" crossorigin="anonymous"></script>
    
   </head>
@@ -24,180 +26,122 @@
         </div>
         <div class="main">
           <section class="pagetitle">
-            <h1>Agenda</h1>
+            <h1>Listado de atenciones</h1>
           </section>
             <section id="section_dashboard" class="section section_container">
-                <div class="card_citas">
-                    <div class="card_content">
-                      <div class="card_top">
-                        <!-- <p>Dueño: </p> -->
-                        <span class="status_bagde nonavailable">no disponible</span>
-                        <div class="color"></div>
+              <table class="highlight">
+                <thead>
+                  <tr>
+                      <th>Paciente</th>
+                      <th>H. Clínica</th>
+                      <th>Fecha y hora</th>
+                      <th>Acciones</th>
+                  </tr>
+                </thead>
+        
+                <tbody>
+                  <tr>
+                    <td>Alvin</td>
+                    <td>Eclair</td>
+                    <td>10:30</td>
+                    <td>
+                      <div class="left-icons">
+                        <span class="action-icons" id="actions">
+                            <span class="btnEditar" data-hour="10:30" title="Editar" style="cursor: pointer">
+                              <i class="fa-solid fa-pen-to-square blue-text"></i>
+                            </span>                            
+                            <span id="btnDelete" style="cursor: pointer" title="Eliminar">
+                              <i class="fa-solid fa-trash red-text"></i>
+                            </span>
+                        </span>
+                        <i class="fa-solid fa-file-arrow-down teal-text" data-target="dropdown1" title="Exportar"></i><ul class="dropdown-content" id="dropdown1" tabindex="0">
+                            <li tabindex="0">
+                                <a title="PDF" class="waves-effect waves-red" id="btnPdf">
+                                    <i class="material-icons tiny left red-text">radio_button_unchecked</i> <b class="red-text">PDF</b>
+                                </a>
+                            </li>
+                            <li tabindex="0">
+                                <a title=" Archivo Plano" class="waves-effect waves-teal" id="btnPlano">
+                                    <i class="material-icons tiny left grey-text">radio_button_unchecked</i><b class="blue-grey-text">Archivo</b>
+                                </a>
+                            </li>
+                            <li tabindex="0">
+                                <a title="Excel" class="waves-effect waves-green" id="btnExcel">
+                                    <i class="material-icons tiny left green-text">radio_button_unchecked</i><b class="green-text">Excel</b>
+                                </a>
+                            </li>
+                        </ul>
                       </div>
-                      <div class="card_middle nonavailable">
-                        <div>
-                          <p>08:00 <i class="fa-regular fa-clock"></i></p>
-                        </div>
-                        <!-- <img src="https://www.smashbros.com/wiiu-3ds/images/character/lizardon/main.png" /> -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Alan</td>
+                    <td>Jellybean</td>
+                    <td>10:30</td>
+                    <td><div class="left-icons">
+                      <span class="action-icons" id="actions">
+                          <span class="btnEditar" data-hour="11:30" title="Editar" style="cursor: pointer">
+                              <i class="material-icons blue-text">mode_edit&nbsp;</i>
+                          </span>
+                          <span id="btnDelete" style="cursor: pointer" title="Eliminar">
+                              <i class="material-icons red-text">delete&nbsp;</i>
+                          </span>
+                      </span>
+                      <i class="material-icons dropdown-settings teal-text" data-target="dropdown1" title="Exportar">file_download</i><ul class="dropdown-content" id="dropdown1" tabindex="0">
+                          <li tabindex="0">
+                              <a title="PDF" class="waves-effect waves-red" id="btnPdf">
+                                  <i class="material-icons tiny left red-text">radio_button_unchecked</i> <b class="red-text">PDF</b>
+                              </a>
+                          </li>
+                          <li tabindex="0">
+                              <a title=" Archivo Plano" class="waves-effect waves-teal" id="btnPlano">
+                                  <i class="material-icons tiny left grey-text">radio_button_unchecked</i><b class="blue-grey-text">Archivo</b>
+                              </a>
+                          </li>
+                          <li tabindex="0">
+                              <a title="Excel" class="waves-effect waves-green" id="btnExcel">
+                                  <i class="material-icons tiny left green-text">radio_button_unchecked</i><b class="green-text">Excel</b>
+                              </a>
+                          </li>
+                      </ul>
+                    </div></td>
+                  </tr>
+                  <tr>
+                    <td>Jonathan</td>
+                    <td>Lollipop</td>
+                    <td>$7.00</td>
+                    <td>
+                      <div class="left-icons">
+                        <span class="action-icons" id="actions">
+                            <span class="btnEditar" title="Editar" style="cursor: pointer">
+                                <i class="material-icons blue-text">mode_edit&nbsp;</i>
+                            </span>
+                            <span id="btnDelete" style="cursor: pointer" title="Eliminar">
+                                <i class="material-icons red-text">delete&nbsp;</i>
+                            </span>
+                        </span>
+                        <i class="material-icons dropdown-settings teal-text" data-target="dropdown1" title="Exportar">file_download</i><ul class="dropdown-content" id="dropdown1" tabindex="0">
+                            <li tabindex="0">
+                                <a title="PDF" class="waves-effect waves-red" id="btnPdf">
+                                    <i class="material-icons tiny left red-text">radio_button_unchecked</i> <b class="red-text">PDF</b>
+                                </a>
+                            </li>
+                            <li tabindex="0">
+                                <a title=" Archivo Plano" class="waves-effect waves-teal" id="btnPlano">
+                                    <i class="material-icons tiny left grey-text">radio_button_unchecked</i><b class="blue-grey-text">Archivo</b>
+                                </a>
+                            </li>
+                            <li tabindex="0">
+                                <a title="Excel" class="waves-effect waves-green" id="btnExcel">
+                                    <i class="material-icons tiny left green-text">radio_button_unchecked</i><b class="green-text">Excel</b>
+                                </a>
+                            </li>
+                        </ul>
                       </div>
-                      <div class="card_bottom" data-hour="08:00">
-                          <p>Abrir atención   <i class="fa-solid fa-arrow-up-right-from-square"></i></p>
-                      </div>
-                    </div>
-                </div>
-                <div class="card_citas">
-                  <div class="card_content">
-                    <div class="card_top">
-                      <span class="status_bagde reserved">agendada</span>
-                      <div class="color"></div>
-                    </div>
-                    <div class="card_middle reserved">
-                      <div>
-                        <p>08:30 <i class="fa-regular fa-clock"></i></p>
-                      </div>
-                      <!-- <img src="https://www.smashbros.com/wiiu-3ds/images/character/lizardon/main.png" /> -->
-                    </div>
-                    <div class="card_bottom" data-hour="08:30">
-                        <p>Abrir atención   <i class="fa-solid fa-arrow-up-right-from-square"></i></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="card_citas">
-                    <div class="card_content">
-                      <div class="card_top">
-                        <span class="status_bagde reserved">agendada</span>
-                        <div class="color"></div>
-                      </div>
-                      <div class="card_middle reserved">
-                        <div>
-                          <p>09:00 <i class="fa-regular fa-clock"></i></p>
-                        </div>
-                        <!-- <img src="https://www.smashbros.com/wiiu-3ds/images/character/lizardon/main.png" /> -->
-                      </div>
-                      <div class="card_bottom" data-hour="09:00">
-                          <p>Abrir atención   <i class="fa-solid fa-arrow-up-right-from-square"></i></p>
-                      </div>
-                    </div>
-                </div>
-                <div class="card_citas">
-                  <div class="card_content">
-                    <div class="card_top">
-                      <span class="status_bagde reserved">agendada</span>
-                      <div class="color"></div>
-                    </div>
-                    <div class="card_middle reserved">
-                      <div>
-                        <p>09:30 <i class="fa-regular fa-clock"></i></p>
-                      </div>
-                      <!-- <img src="https://www.smashbros.com/wiiu-3ds/images/character/lizardon/main.png" /> -->
-                    </div>
-                    <div class="card_bottom" data-hour="09:30">
-                        <p>Abrir atención   <i class="fa-solid fa-arrow-up-right-from-square"></i></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="card_citas">
-                  <div class="card_content">
-                    <div class="card_top">
-                      <span class="status_bagde available">disponible</span>
-                      <div class="color"></div>
-                    </div>
-                    <div class="card_middle available">
-                      <div>
-                        <p>10:00 <i class="fa-regular fa-clock"></i></p>
-                      </div>
-                      <!-- <img src="https://www.smashbros.com/wiiu-3ds/images/character/lizardon/main.png" /> -->
-                    </div>
-                    <div class="card_bottom" data-hour="10:00">
-                        <p>Abrir atención   <i class="fa-solid fa-arrow-up-right-from-square"></i></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="card_citas">
-                  <div class="card_content">
-                    <div class="card_top">
-                      <span class="status_bagde available">disponible</span>
-                      <div class="color"></div>
-                    </div>
-                    <div class="card_middle available">
-                      <div>
-                        <p>10:30 <i class="fa-regular fa-clock"></i></p>
-                      </div>
-                      <!-- <img src="https://www.smashbros.com/wiiu-3ds/images/character/lizardon/main.png" /> -->
-                    </div>
-                    <div class="card_bottom" data-hour="10:30">
-                        <p>Abrir atención   <i class="fa-solid fa-arrow-up-right-from-square"></i></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="card_citas">
-                  <div class="card_content">
-                    <div class="card_top">
-                      <span class="status_bagde available">disponible</span>
-                      <div class="color"></div>
-                    </div>
-                    <div class="card_middle available">
-                      <div>
-                        <p>11:00 <i class="fa-regular fa-clock"></i></p>
-                      </div>
-                      <!-- <img src="https://www.smashbros.com/wiiu-3ds/images/character/lizardon/main.png" /> -->
-                    </div>
-                    <div class="card_bottom" data-hour="11:00">
-                        <p>Abrir atención   <i class="fa-solid fa-arrow-up-right-from-square"></i></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="card_citas">
-                  <div class="card_content">
-                    <div class="card_top">
-                      <span class="status_bagde available">disponible</span>
-                      <div class="color"></div>
-                    </div>
-                    <div class="card_middle available">
-                      <div>
-                        <p>11:30 <i class="fa-regular fa-clock"></i></p>
-                      </div>
-                      <!-- <img src="https://www.smashbros.com/wiiu-3ds/images/character/lizardon/main.png" /> -->
-                    </div>
-                    <div class="card_bottom" data-hour="11:30">
-                        <p>Abrir atención   <i class="fa-solid fa-arrow-up-right-from-square"></i></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="card_citas">
-                  <div class="card_content">
-                    <div class="card_top">
-                      <span class="status_bagde available">disponible</span>
-                      <div class="color"></div>
-                    </div>
-                    <div class="card_middle available">
-                      <div>
-                        <p>12:00 <i class="fa-regular fa-clock"></i></p>
-                      </div>
-                      <!-- <img src="https://www.smashbros.com/wiiu-3ds/images/character/lizardon/main.png" /> -->
-                    </div>
-                    <div class="card_bottom" data-hour="12:00">
-                        <p>Abrir atención   <i class="fa-solid fa-arrow-up-right-from-square"></i></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="card_citas">
-                  <div class="card_content">
-                    <div class="card_top">
-                      <span class="status_bagde available">disponible</span>
-                      <div class="color"></div>
-                    </div>
-                    <div class="card_middle available">
-                      <div>
-                        <p>12:30 <i class="fa-regular fa-clock"></i></p>
-                      </div>
-                      <!-- <img src="https://www.smashbros.com/wiiu-3ds/images/character/lizardon/main.png" /> -->
-                    </div>
-                    <div class="card_bottom" data-hour="12:30">
-                          <p>Abrir atención  <i class="fa-solid fa-arrow-up-right-from-square"></i></p>
-                    </div>
-                  </div>
-                </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </section>
             <div class="btnlogin" id="btncloseSession">
               Logout
