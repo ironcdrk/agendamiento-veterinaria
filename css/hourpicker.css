@@ -75,7 +75,14 @@
   }
   .horarios{
     background: white;
-    border: 1;
+    border-color: #aaaab1;
+    border-bottom: 1px solid #aaaab1;
+    border-left: 1px solid #aaaab1;
+    border-right: 1px solid #aaaab1;
+    /* border-radius: 8px; */
+    border-top: none;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
     /* position: relative; */
     height: 50%;
   }

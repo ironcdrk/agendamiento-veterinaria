@@ -48,6 +48,21 @@
   grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
   grid-gap: 10px;
   box-sizing: border-box;
+  border: 1px solid #aaaab1;
+}
+.calendar_numbers{
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
+  grid-gap: 10px;
+  box-sizing: border-box;
+  border-color: #aaaab1;
+    border-bottom: 1px solid #aaaab1;
+    border-left: 1px solid #aaaab1;
+    border-right: 1px solid #aaaab1;
+    border-top: none;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 
 .calendar_day {

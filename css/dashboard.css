@@ -6,97 +6,136 @@
   border-radius: 10px;
   box-shadow: 0px 5x 10px -5px rgb(0,0,0,.5);
   text-align: center;
-  display: grid;
+/*   display: grid;
   gap: 2em;
-  grid-template-columns: repeat(auto-fill, 180px);
+  grid-template-columns: repeat(auto-fill, 180px); */
 }
-.card_citas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 160px;
-    width: 200px;
-    background-color: #315c80;
-    border-radius: 8px;
-    position: relative;
-  }
+table,
+th,
+td
+{
+    border: none;
+}
 
-  .card_citas:hover {
-    transform: scale(1.03);
-  }
+table
+{
+    display: table;
 
-  
-  .card_content {
-    display: flex;
-    flex-direction: column;
-    height: 95%;
-    width: 95%;
-    background-color: white;
-    border-radius: 8px;
-  }
-  
-  .card_top {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 20%;
-    background-color: white;
-    
-  }
-  
-  .card_middle {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    height: 40%;
-    background-color: var(--bluecolor);
-    padding-left: 15px;
-    padding-right: 15px;
-    font-size: 2em;
-    font-weight: 700;
-    color: white;
-  }
-  
-  .card_bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 40%;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
+    width: 100%;
 
+    border-spacing: 0;
+    border-collapse: collapse;
+}
 
-  .card_bottom:hover {
-    color: var(--bluecolor);
-    cursor: pointer;
-    transform: scale(1.03);
-  }
+table.striped tr
+{
+    border-bottom: none;
+}
 
-  .status_bagde{
-    min-width: 3rem;
-    padding: 0 6px;
-    /* margin-left: 14px; */
+table.striped > tbody > tr:nth-child(odd)
+{
+    background-color: rgba(242, 242, 242, .5);
+}
+
+table.striped > tbody > tr > td
+{
+    border-radius: 0;
+}
+
+table.highlight > tbody > tr
+{
+    -webkit-transition: background-color .25s ease;
+            transition: background-color .25s ease;
+}
+
+table.highlight > tbody > tr:hover
+{
+    background-color: rgba(242, 242, 242, .5);
+}
+
+table.centered thead tr th,
+table.centered tbody tr td
+{
     text-align: center;
-    font-size: .8rem;
-    line-height: 22px;
-    height: 22px;
-    color: #fff;
-    float: right;
-    border-radius: 5px;
-    font-weight: 300;
-  }
-  .available{
-    background-image: linear-gradient(195deg,#66bb6a,#43a047);
-  }
+}
 
-  .nonavailable{
-    background-color: #949393;
-  }
+tr
+{
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+}
 
-  .reserved{
-    background-color: var(--bluecolor);
-  }
+td,
+th
+{
+    display: table-cell;
 
- 
+    padding: 15px 5px;
+
+    text-align: left;
+    vertical-align: middle;
+
+    border-radius: 2px;
+}
+/*----------------------------------------
+	Dropdown
+------------------------------------------*/
+.dropdown-content
+{
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    display: none;
+    overflow-y: auto;
+
+    min-width: 100px;
+    margin: 0;
+
+    -webkit-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+            transform-origin: 0 0;
+
+    opacity: 0;
+    background-color: #fff;
+}
+.dropdown-content li
+{
+    line-height: 1.5rem;
+
+    clear: both;
+
+    width: 100%;
+    min-height: 50px;
+
+    cursor: pointer;
+    text-align: left;
+
+    color: rgba(0, 0, 0, .87);
+}
+.dropdown-content li:hover,
+.dropdown-content li.active
+{
+    background-color: #eee;
+}
+
+.dropdown-content li > a,
+.dropdown-content li > span
+{
+    padding: 14px 24px;
+}
+
+.dropdown-content li > a:hover,
+.dropdown-content li > a.active,
+.dropdown-content li > span:hover,
+.dropdown-content li > span.active
+{
+    background-color: #eee;
+}
+
+.dropdown-content li > a > i
+{
+    width: 24px;
+    margin: 0 12px 0 0;
+}
+

@@ -1,6 +1,7 @@
 import { validarCedula, getDatetimestamp } from './utils.js';
 import { addAtencion, addCita } from './odm.js';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js';
+import { Calendar } from './calendar.js';
 
 
 const formClient = document.querySelector("#user-form");
@@ -177,6 +178,8 @@ btnNext3.addEventListener('click', async function(ev){
 
 // Manejo de calendario
 
+new Calendar({date: null, container: ".calendar_numbers"});
+
 const daysnumber = document.querySelectorAll(".calendar_number");
 
 const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
@@ -188,6 +191,7 @@ daysnumber.forEach((element, key)=>{
         daysnumber.forEach((element, key)=>{element.classList.remove("calendar_number_selected");});
         console.log("seting a day..");
         console.log(element);
+        element.classList.add("calendar_number_selected");
         //document.querySelector(".num_date").innerHTML=element.innerHTML;
     });
 });

@@ -1,0 +1,19 @@
+/*----------------------------------------
+	Colors
+------------------------------------------*/
+
+:root{
+    --blue-text: #2196f3;
+    --red-text: #F44336;
+    --teal-text: #009688;
+  }
+
+.blue-text {
+    color: var(--blue-text)
+}
+.red-text {
+    color: var(--red-text);
+}
+.teal-text {
+color: var(--teal-text);
+}

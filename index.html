@@ -4,179 +4,138 @@
     <title>VetJS</title>
     <link href="css/layout.css" rel="stylesheet" type="text/css">
     <link href="css/estilos.css" rel="stylesheet" type="text/css">
-    <link href="css/calendar.css" rel="stylesheet" type="text/css">
-    <link href="css/smallcalendar.css" rel="stylesheet" type="text/css">
+<!--     <link href="css/hourpicker.css" rel="stylesheet" type="text/css">
+    <link href="css/smallcalendar.css" rel="stylesheet" type="text/css"> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/c4e8793520.js" crossorigin="anonymous"></script>
+    
    
   </head>
   <body>
-    <div class="container">
-        <div class="navbar">
-            <div class="navbar_logo logo">
+    <div class="navbar-fixed">
+        <nav class="headernav">
+            <div class="headernav_logo logo">
                 <i class="fa-solid fa-shield-dog"></i>
                 <div class="legend">
                   <h3>Vet <span>JS</span></h3>
                 </div>
             </div>
-            <hr>
-              <ul>
-                <li><a href="#"><i class="fa-solid fa-file-pen"></i> Datos Generales<i id="datosgenerales-check" class="fa-solid fa-check" style="display: none;"></i></a></li>
-                <li><a href="#"><i class="fa-solid fa-dog"></i> Datos Paciente<i id="datosmascota-check" class="fa-solid fa-check" style="display: none;"></i></a></li>
-                <li><a href="#"><i class="fa-regular fa-calendar-days"></i> Fecha cita<i id="datosfecha-check" class="fa-solid fa-check" style="display: none;"></i></a></li>
-                <!-- <li><a href="#"></a></li> -->
-              </ul>
-          </div>
-        <div class="main">
-            <section id="section_usuario" class="section section_registro">
-                <h2 class="section_title">Consulta veterinaria </h2>
-                <h4 class="section_subtitle">Ingrese los datos personales</h4>
-                <form id="user-form" action="#" class="form_registro">
-                    <div class="form_group"> <i class="fa-solid fa-id-card input_icon_prefix"></i>
-                        <input type="text" id="usuario" class="form_input" placeholder=" " value pattern="[0-9]{10}" minlength="10" required>
-                        <label for="usuario" class="form_label">Cédula:</label>
-                        <span class="form_line"></span>
-                    </div>
-                    <div class="form_group"> <i class="fa-solid fa-user input_icon_prefix"></i>
-                        <input type="text" id="nombre" class="form_input" placeholder=" " value pattern="[\w\s]{4,30}" minlength="4" required>
-                        <label for="nombre" class="form_label">Nombre del dueño:</label>
-                        <span class="form_line"></span>
-                    </div>
-                    <div class="form_group"> <i class="fa-solid fa-dog input_icon_prefix"></i>
-                        <input type="text" id="mascota" class="form_input" placeholder=" " value pattern="[A-Za-z]{4,10}" minlength="4" required>
-                        <label for="mascota" class="form_label">Nombre de la mascota:</label>
-                        <span class="form_line"></span>
-                    </div>
-                    <input type="submit" id="btn-formusuario" class="form_submit" value="Iniciar">
-                </form>
-            </section>
-            <section id="section_mascota" class="section" style="display: none;">
-                <!-- <div class="card_container">      -->
-                    <form id="mascota-form" class="card_container" action="#">               
-                        <h2 class="section_title">Consulta veterinaria</h2>
-                        <h4 class="section_subtitle">Selecciona la raza de su mascota</h4>
-                            <div id="dogsbred-container" class="section-content">
-                                
-                            </div>                   
-                    <div class="controls">
-                        <input type="button" class="btn_control prev" id="prev-2" value="Anterior">
-
-                        <input type="submit" id="next-2" class="btn_control" value="Siguiente">
-                        <!-- <input type="button" class="btn_control" id="next-2" value="Siguiente"> -->
-                    </div>       
-                </form>  
-                <!-- </div> -->
-
-            </section>
-            <section id="section_fechahora" class="section" style="display: none;">
-                <div class="card_container">            
-                    <h2 class="section_title">Consulta veterinaria</h2>
-                    <h4 class="section_subtitle">Escoge la fecha y hora de la cita</h4>
-                    <div id="appointmentdate-container"  class="section-content">
-                        
-                        <div class="calendar-left">
-                                                                       
-                            <div class="num_date calendar_lblday"></div>
-                            <!--num-date -->
-                            <div class="day calendar_lbldayofweek"></div>
-                            <!--day -->
-                            <div class="current-events">Citas disponibles</div>
-                            <br/>
-                            <div class="horarios">
-                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 08:00</button>
-                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 08:30</button>
-                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 09:00</button>
-                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 09:30</button>
-                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 10:00</button>
-                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 10:30</button>
-                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 11:00</button>
-                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 11:30</button>
-                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 12:00</button>
-                                <button type="button" class="btn_horario" ><i class="fa-regular fa-clock"></i> 12:30</button>
-                            </div>                            
-                        </div>     
-                        <!-- calendar-left -->
-                        <div class="calendar">
-                            <div class="calendar_picture">
-                              <h2><span class="calendar_lblday"></span>, <span class="calendar_lbldayofweek"></span></h2>
-                              <h3 class="calendar_lblmonth"></h3>
-                            </div>
-                            <div class="calendar_date">
-                              <div class="calendar_day">L</div>
-                              <div class="calendar_day">M</div>
-                              <div class="calendar_day">M</div>
-                              <div class="calendar_day">J</div>
-                              <div class="calendar_day">V</div>
-                              <div class="calendar_day">S</div>
-                              <div class="calendar_day">D</div>
-                              <div class="calendar_number"></div>
-                              <div class="calendar_number"></div>
-                              <div class="calendar_number"></div>
-                              <div class="calendar_number">1</div>
-                              <div class="calendar_number">2</div>
-                              <div class="calendar_number">3</div>
-                              <div class="calendar_number">4</div>
-                              <div class="calendar_number">5</div>
-                              <div class="calendar_number">6</div>
-                              <div class="calendar_number">7</div>
-                              <div class="calendar_number">8</div>
-                              <div class="calendar_number">9</div>
-                              <div class="calendar_number">10</div>
-                              <div class="calendar_number">11</div>
-                              <div class="calendar_number">12</div>
-                              <div class="calendar_number">13</div>
-                              <div class="calendar_number">14</div>
-                              <div class="calendar_number">15</div>
-                              <div class="calendar_number">16</div>
-                              <div class="calendar_number">17</div>
-                              <div class="calendar_number">18</div>
-                              <div class="calendar_number">19</div>
-                              <div class="calendar_number">20</div>
-                              <div class="calendar_number">21</div>
-                              <div class="calendar_number">22</div>
-                              <div class="calendar_number">23</div>
-                              <div class="calendar_number">24</div>
-                              <div class="calendar_number">25</div>
-                              <div class="calendar_number">26</div>
-                              <div class="calendar_number">27</div>
-                              <div class="calendar_number">28</div>
-                              <div class="calendar_number">29</div>
-                              <div class="calendar_number">30</div>
-                            </div>
-                          </div>           
-                    </div>      
-                    <div class="controls">
-                        <input type="button" class="btn_control prev" id="prev-3" value="Anterior">
-    
-                        <input type="button" class="btn_control" id="next-3" value="Agendar">
-                    </div>                  
-                </div>
-            </section>
-            <div class="btnlogin" id="btnloginGoogle">
-                Login
-                <a class="btn-floating">
-                    <i class="fa-solid fa-right-to-bracket"></i>
-                </a>
+        </nav>
+        <nav class="horizontalnav">
+            <div class="nav-wrapper">
+                <ul>
+                    <li class="active">
+                        <a href="/">
+                            <i class="material-icons">home</i>
+                            <p>Inicio</p>
+                        </a>
+                    </li>
+                    <li><a href="especialidades.html"><i class="material-icons">pets</i><p>Especialidades</p></a></li>
+                    <li><a href="citas.html"><i class="material-icons">assignment</i><p>Citas</p></a></li>
+                    <li><a href="contacto.html"><i class="material-icons">contacts</i><p>Contacto</p></a></li>
+                </ul>
+                <!-- END: Horizontal nav start-->
             </div>
-        </div>
-        <!-- <div class="footer">
-
-        </div> -->
+        </nav>
+    </div>
+    
+    <div class="container">
         
-    </div>
-    <div id="modalBox" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <span class="close">&times;</span>
-            <h2>Atención</h2>
+        
+        <div class="main">
+          <div class="mainbanner">
           </div>
-          <div class="modal-body">          
-          <p>Registro guardado exitosamente  <i class="fa-solid fa-square-check"></i></p>
+          <div class="secondbanner">
+            <div class="title whitegd">Reserva tu cita <p style="color: black;">veterinaria</p></div>
+            <div class="content">
+              <button class="btn">Agendar</button>
+            </div>
           </div>
         </div>
-      
+        <div class="servicios">
+          <div class="infographic bluegd">
+            <img src="assets/img/inicio/laboratorio.jpg" />
+            <div class="title">Laboratorio</div>
+            <div class="content">
+              <span>Sanguíneo</span>
+              <span>Coproparasitario</span>
+            </div>
+          </div>
+          <div class="infographic pinkgd">
+            <img src="assets/img/inicio/rayosx.jpg" />
+            <div class="title">Imagen</div>
+            <div class="content">
+              <span>Tomografías</span>
+              <span>Rayos X</span>
+            </div>
+          </div>
+          <div class="infographic orangegd">
+            <img src="assets/img/inicio/farmacia.jpg" />
+            <div class="title">Farmacia</div>
+            <div class="content">
+              <span>Compra tu receta</span>
+              <span>Te llevamos la medicina a la puerta de tu casa</span>
+            </div>
+          </div>
+          <div class="infographic greengd ">
+            <img src="assets/img/inicio/spa.jpg" />
+            <div class="title">Spa canino</div>
+            <div class="content">
+              <span>Peluquería</span>
+              <span>Baño antipulgas</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="staff">
+            <div class="review">
+              <h1>Contamos con personal calificado</h1>
+              <h2>Tu mascota en las mejores manos</h2>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate explicabo eveniet ipsa aperiam ratione eius quis odit nisi,
+              mollitia magni dolore dolor ad earum, vero inventore odio rem adipisci natus.</p>
+            </div>
+            <div class="review-image">
+              <img src="assets/img/staff.jpg">
+            </div>
+
+            <!-- <div class="card sm">
+              <div class="card-img">
+
+              </div>
+              <div class="card-content white-text">
+                <span class="card-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information.
+                I am convenient because I require little markup to use effectively.</p>
+              </div>
+            </div>
+            <div class="card sm">
+                <div class="card-content white-text">
+                  <span class="card-title">Card Title</span>
+                  <p>I am a very simple card. I am good at containing small bits of information.
+                  I am convenient because I require little markup to use effectively.</p>
+                </div>
+            </div>
+            <div class="card sm">
+                <div class="card-content white-text">
+                  <span class="card-title">Card Title</span>
+                  <p>I am a very simple card. I am good at containing small bits of information.
+                  I am convenient because I require little markup to use effectively.</p>
+                </div>
+            </div>
+            <div class="card sm">
+                <div class="card-content white-text">
+                  <span class="card-title">Card Title</span>
+                  <p>I am a very simple card. I am good at containing small bits of information.
+                  I am convenient because I require little markup to use effectively.</p>
+                </div>
+            </div> -->
+        </div>
     </div>
+    <footer>
+
+    </footer>
   </body>
 
   <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/index.js"></script>
 </html>
