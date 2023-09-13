@@ -21,7 +21,7 @@ async function closeSession(){
     }
 }
 
-const btnCita = document.querySelectorAll(".card_bottom");
+const btnCita = document.querySelectorAll(".btnEditar");
 
 btnCita.forEach((element, key)=>{
 
