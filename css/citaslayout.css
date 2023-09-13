@@ -74,11 +74,10 @@ hr{
 
 
 
-.main{
-    grid-area: 1 / 3 / 5 / 12;
+.dashboard{
+    grid-area: 1 / 3 / 5 / 13;
     min-height: 500px;
-    /* grid-area: main; */
-    padding: 5% 10%;
+    padding: 2rem 0;
     /* TODO: revisar que no afecte a los calendarios*/
     display: flex;
     flex-direction: column;
