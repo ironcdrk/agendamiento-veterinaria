@@ -71,18 +71,12 @@ body{
 }
 .secondbanner .title{
   color: var(--bluecolor);
-  /* position: absolute;
-  top: 40%;
-  left: 25%; */
   padding: 10%;
   font-size: 1.8rem;
   font-weight: bold;
   display: none;
 }
 .secondbanner .content{
-  /* position: absolute;
-  top: 70%;
-  left: 50%; */
   font-size: 1.5rem;
   font-weight: bold;
   display: none;
@@ -102,21 +96,19 @@ body{
     display: block;
   }
 }
-@media only screen and (max-width: 800px) {
-  .servicios{
-    margin: 0 5%;
-  }  
-}
 .servicios{
   grid-area: serv;
-  /*display: flex; */
-/*   padding: 5% 10%;
-  justify-content: space-around; */
   display: grid;
-  grid-auto-flow: row;
-  /* grid-auto-rows: 25rem; */
   align-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  grid-auto-flow: dense;
+  grid-auto-rows: 20rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%,20rem), 1fr));
+}
+@media only screen and (max-width: 1297px) {
+  .servicios{
+    margin: 0 5%;
+    gap: 2em;
+  }  
 }
 .staff{
   grid-area: paq;
