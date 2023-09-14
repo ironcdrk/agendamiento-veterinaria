@@ -25,7 +25,7 @@ async function initSession(){
 
 const loginButton = document.querySelector('#btnloginGoogle');
 
-loginButton.addEventListener('click', function(ev){
+loginButton?.addEventListener('click', function(ev){
     initSession();
 });
 
