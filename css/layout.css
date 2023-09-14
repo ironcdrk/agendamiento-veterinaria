@@ -55,6 +55,30 @@ body{
   background-repeat: no-repeat;
   grid-column: 1/5;
   min-width: 405px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 2em;
+}
+.logo-holder{
+  text-align:center;
+  margin-left: 23px;
+}
+
+.logo-mb h3 {
+  color: var(--whitegradient);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 50px;
+}
+.logo-mb p {
+  font-size: 14px;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+  background: var(--bluecolor);
+  font-weight: 400;
+  color: #fff;
+  padding-left: 5px;
 }
 .secondbanner {
   background-image: url("../assets/img/secondbanner.jpg");
@@ -181,6 +205,7 @@ body{
   padding: .5em 1em;
   border: none;
   border-radius: .5em;
+  cursor: pointer;
 }
 
 /*----------------------------------------
