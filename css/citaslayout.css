@@ -55,7 +55,7 @@ body{
     text-decoration: none;
     color: white;
     padding: 15px;
-    font-size: 18px;
+    font-size: 1rem;
     display: flex;
     gap: 1em;
   }
@@ -72,6 +72,16 @@ hr{
     opacity: .25;
 }
 
+.aside-legend{
+  display: none;
+}
+
+@media only screen and (min-width: 850px) {
+  
+  .aside-legend{
+    display: block;
+  }
+}
 
 
 .dashboard{
