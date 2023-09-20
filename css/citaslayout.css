@@ -78,6 +78,9 @@ body{
   .aside > ul > li.active{
     color: white;
   }
+  .aside > ul > li.active::before{
+    border: 3px solid white;
+  }
   .aside > ul > li > a > i{
     align-self: center;
   }   
