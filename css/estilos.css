@@ -108,7 +108,7 @@
     margin-left: 3rem
 }
 
-.card_container{
+.appointment_container{
     background-color: white;
     width: 90%;
     /* max-width: 400px; */
@@ -205,7 +205,7 @@
 
 #appointmentdate-container{
     display: grid;
-    grid-auto-rows: 600px;
+    grid-auto-rows: 480px;
     grid-template-columns: repeat(auto-fit,minmax(min(450px,100%),1fr));
     /* display: flex;
     flex-wrap: wrap;
