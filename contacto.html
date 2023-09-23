@@ -42,7 +42,35 @@
         
         
         <div class="main">
-            
+            <div class="section section_contact">
+                <div class="address">
+                    <h3>Matriz</h3>
+                    <h3>Dirección</h3>
+                    <i class="fa-regular fa-hospital"></i>
+                    Av. Morán valverde y Mariscal Sucre (Quito - Ecuador)
+                    <img src="/assets/img/establecimiento.jpg">
+                </div>
+                <div class="contact_form">
+                    <form id="user-form" action="#" class="form_registro">
+                        <div class="form_group"> <i class="fa-solid fa-id-card input_icon_prefix"></i>
+                            <input type="text" id="usuario" class="form_input" placeholder=" " value="" pattern="[0-9]{10}" minlength="10" required="">
+                            <label for="usuario" class="form_label">Número de identificación:</label>
+                            <span class="form_line"></span>
+                        </div>
+                        <div class="form_group"> <i class="fa-solid fa-user input_icon_prefix"></i>
+                            <input type="text" id="nombre" class="form_input" placeholder=" " value="" pattern="[\w\s]{4,30}" minlength="4" required="">
+                            <label for="nombre" class="form_label">Nombre del dueño:</label>
+                            <span class="form_line"></span>
+                        </div>
+                        <div class="form_group"> <i class="fa-solid fa-dog input_icon_prefix"></i>
+                            <input type="text" id="mascota" class="form_input" placeholder=" " value="" pattern="[A-Za-z]{4,10}" minlength="4" required="">
+                            <label for="mascota" class="form_label">Nombre de la mascota:</label>
+                            <span class="form_line"></span>
+                        </div>
+                        <input type="submit" id="btn-formusuario" class="form_submit" value="Enviar">
+                    </form>
+                </div>
+            </div>
         </div>
         
     </div>

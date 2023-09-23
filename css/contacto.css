@@ -1,0 +1,5 @@
+.section_contact{
+    grid-area: 1/1 / 1/5;
+    display: inline-flex;
+    gap: 2em;
+}
