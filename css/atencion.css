@@ -39,7 +39,7 @@
     width: 500px;
     height: 540px;
     padding: 0;
-    color: var(--bluecolor);
+    color: var(--secondly);
   }
 
   .dogsbody img {
@@ -79,7 +79,7 @@ legend {
 	background-color: #fff;
 	border: 1px solid #ddd;
 	border-radius: 4px;
-	color: var(--bluecolor);
+	color: var(--secondly);
 	font-size: 17px;
 	font-weight: bold;
 	padding: 6px 8px;
@@ -107,7 +107,7 @@ legend {
 }
 
 .btn_atencion{
-  background-color: var(--bluebtn);
+  background-color: var(--primary);
   color: white;
   font-family: inherit;
   font-size: 1rem;

@@ -1,6 +1,6 @@
 
 .section_subtitle{
-    color: var(--bluecolor);
+    color: var(--secondly);
 }
 .section_registro{
     background-color: white;
@@ -65,7 +65,7 @@
 }
 
 .form_submit{
-    background-color: var(--bluebtn);
+    background-color: var(--primary);
     color: white;
     font-family: inherit;
     font-size: 1rem;
@@ -85,7 +85,7 @@
 
 .form_input:not(:placeholder-shown) + .form_label,
 .form_input:focus + .form_label{
-    color: cornflowerblue;
+    color: var(--secondly);
     transform: translateY(-12px) scale(.8);
     transform-origin: top left;
     transition-duration: .7s;
@@ -133,7 +133,7 @@
 }
 
 .btn_control{
-    background-color: var(--bluebtn);
+    background-color: var(--primary);
     color: white;
     font-family: inherit;
     font-size: 1rem;
@@ -145,8 +145,8 @@
 
 .btn_control.prev{
     background-color: white;
-    color: var(--bluebtn);
-    border: .6px solid var(--bluebtn);
+    color: var(--primary);
+    border: .6px solid var(--primary);
     border-radius: .5em;
 }
 

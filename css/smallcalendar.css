@@ -94,7 +94,7 @@
 .calendar_number_selected,
 .calendar_number:hover {
   /* background-color: #009688; */
-  background-color: #0071CE;
+  background-color: var(--secondly);
   color: #fff !important;
   font-weight: 700;
   cursor: pointer;

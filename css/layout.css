@@ -1,17 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Bangers|Cinzel:400,700,900|Lato:100,300,400,700,900|Lobster|Lora:400,700|Mansalva|Muli:200,300,400,600,700,800,900|Open+Sans:300,400,600,700,800|Oswald:200,300,400,500,600,700|Roboto:100,300,400,500,700,900&display=swap');
 
-:root {
-    --bluebtn: #3866f2;
-    --bluecolor: #0071CE;
-    --purplegray: #6f72a8;
-    --bluegradient: rgba(25, 131, 223, 0.75);
-    --greengradient: rgba(71, 223, 25, 0.75);
-    --pinkgradient: rgba(223, 25, 213, 0.75);
-    --yellowgradient:  rgba(220, 223, 25, 0.75);
-    --orangegradient:   rgba(223, 109, 25, 0.75);
-    --whitegradient:   rgba(255, 255, 255, 0.75);
-  }
 * {
     margin: 0;
     padding: 0;
@@ -75,7 +64,7 @@ body{
   font-size: 14px;
   letter-spacing: 7px;
   text-transform: uppercase;
-  background: var(--bluecolor);
+  background: var(--secondly);
   font-weight: 400;
   color: #fff;
   padding-left: 5px;
@@ -93,7 +82,7 @@ body{
   gap: 10%;
 }
 .secondbanner .title{
-  color: var(--bluecolor);
+  color: var(--secondly);
   padding: 10%;
   font-size: 1.8rem;
   font-weight: bold;
@@ -156,7 +145,7 @@ body{
   animation-play-state: paused;
 }
 .staff .review h1{
-  color: var(--bluecolor);
+  color: var(--secondly);
 }
 .staff .review p{
   color: var(--purplegray);
@@ -197,7 +186,7 @@ body{
 	General button
 ------------------------------------------*/
 .btn{
-  background-color: var(--bluebtn);
+  background-color: var(--primary);
   color: white;
   font-family: inherit;
   font-size: 1rem;
@@ -379,7 +368,7 @@ hr{
 .btn-floating{
     color: white;
     font-size: 1rem;
-    background-color: var(--bluebtn);
+    background-color: var(--primary);
     box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
     border-radius: 50%;
     padding: 12px;
