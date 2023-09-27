@@ -15,7 +15,7 @@ body{
     min-height: 100vh;
     margin: 0 auto;
     display: grid;
-    padding-top: 70px;
+    padding-top: 15vh;
     grid-template-columns: repeat(12, 1fr);
     /*grid-template-rows: repeat(3, 1fr);*/
     grid-template-areas: 

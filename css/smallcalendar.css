@@ -43,7 +43,7 @@
 
 
 .calendar_date {
-  padding: 20px;
+  padding: 8px 18px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
   grid-gap: 10px;
