@@ -10,12 +10,9 @@ body{
     font-family: 'Spartan', sans-serif;    
     background-color: #f0f2f5;
 }
-
-.container{
-    padding-top: 140px;
-}
 .aside{
     grid-area: 1 / 1 / 5 / 3;
+    grid-area: 1 / 1 / 5 / 1;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     background: #0f0e17;
@@ -152,6 +149,7 @@ hr{
 
 .dashboard{
     grid-area: 1 / 3 / 5 / 13;
+    grid-area: 1 / 2 / 5 / 13;
     background: white;
     border-radius: 5px;
     border-top-right-radius: 20px;

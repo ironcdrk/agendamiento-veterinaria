@@ -4,10 +4,10 @@
     padding: 3em;
     display: grid;
     align-items: center;
-    justify-items: center;
+    justify-items: start;
     grid-auto-flow: dense;
     grid-auto-rows: 20rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%,20rem), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%,30rem), 1fr));
   }
   @media only screen and (max-width: 1297px) {
     .section_contact{
@@ -22,7 +22,6 @@
     display: inline-flex;
     flex-direction: column;
     gap: 0.8em;
-    padding: 2em;
 }
 
 .fixed-action-btn {

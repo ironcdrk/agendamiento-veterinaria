@@ -208,7 +208,7 @@
 #appointmentdate-container{
     display: grid;
     grid-auto-rows: 480px;
-    grid-template-columns: repeat(auto-fit,minmax(min(450px,100%),1fr));
+    grid-template-columns: repeat(auto-fit,minmax(min(20vw,100%),1fr));
 }
   
   
