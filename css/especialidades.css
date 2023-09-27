@@ -1,4 +1,133 @@
 
+.cardbox-container{
+    position: relative;
+  }
+  
+  .cardbox-container .card{
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background: var(--mainbackground);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .cardbox-container .card:before{
+    content: '';
+    position: absolute;    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--greygradient);
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+  }
+  
+  .cardbox-container .card:hover:before{
+    clip-path: circle(300px at 80% -20%);
+  }
+  
+  .cardbox-container .card:after{
+    content: 'VetJS';
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: var(--greygradient)
+  }
+  
+  .cardbox-container .card .imgBx{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    width: 100%;
+    height: 220px;
+    transition: 0.5s;
+  }
+  
+  .cardbox-container .card:hover .imgBx{
+    top: 0%;
+    transform: translateY(0%);
+      
+  }
+  
+  .cardbox-container .card .imgBx img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) ;
+    width: 270px;
+  }
+  
+  .cardbox-container .card .contentBx{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 1;
+  }
+  
+  .cardbox-container .card:hover .contentBx{
+    height: 210px;
+  }
+  
+  .cardbox-container .card .contentBx h2{
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: black;
+    margin: 0;
+    background-color: var(--primary);
+  }
+  
+  .cardbox-container .card .contentBx .description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: white;
+    margin: 5vh auto;
+  }
+  
+  .cardbox-container .card:hover .contentBx .description{
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+  }
+
+
+.container .card .contentBx a{
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--secondly);
+    border-radius: 4px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--mainbackground);
+    /*color: white;*/
+    transform: translateY(50px);
+    transition: 0.5s;
+    margin-top: 0;
+  }
+  
+  .container .card:hover .contentBx a{
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: 0.75s;
+    
+  }
 @keyframes fade-in {
     0% {
       opacity: 0;

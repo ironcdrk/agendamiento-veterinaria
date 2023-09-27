@@ -44,7 +44,7 @@ body{
     min-width: fit-content;
     text-decoration: none;
     position: relative;
-    color: #4f6581;
+    color: var(--secondly);
     font-size: 1rem;
     display: flex;
     flex-direction: row;
@@ -60,7 +60,7 @@ body{
     position: absolute;
     height: 30px;
     width: 30px;
-    border: 3px solid #4f6581;
+    border: 3px solid var(--secondly);
     border-radius: 50%;
     counter-increment: container 1;
     top: -6vh;

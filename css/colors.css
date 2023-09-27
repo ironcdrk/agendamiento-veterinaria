@@ -3,11 +3,10 @@
 ------------------------------------------*/
 
 :root{
-    --primary: #c1d03e;
-    --secondly: #9AA122;
-    --thirdly: #a7a9be;
-    /*--bluebtn: #3866f2;
-    --bluecolor: #0071CE;*/
+    --mainbackground: #242632;
+    --primary: #daa02c;
+    --secondly: #fcd762; 
+    --thirdly: #dc5c30;
     --blue-text: #2196f3;
     --red-text: #F44336;
     --teal-text: #009688;    
@@ -18,7 +17,8 @@
     --yellowgradient:  rgba(220, 223, 25, 0.75);
     --orangegradient:   rgba(223, 109, 25, 0.75);
     --whitegradient:   rgba(255, 255, 255, 0.75);
-    --graygradient:  rgba(3,3,3,.67);
+    --greygradient:   rgba(255, 255, 255, 0.1);
+    --graygradient:  rgba(3,3,3,.75);
   }
 
 .blue-text {

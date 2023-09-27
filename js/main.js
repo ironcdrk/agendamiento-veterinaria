@@ -108,6 +108,7 @@ formDogsBreed.addEventListener('submit', function(ev){
         sectionFechahora.removeAttribute("style");
         localStorage.setItem("raza", dogsbreedVal);
         document.getElementById("datosmascota-check").removeAttribute("style");
+        document.getElementById("datosmascota-check").parentNode.classList.add("active");
     } else {
         alert('No ha seleccionado ninguna raza');
     }
@@ -160,6 +161,7 @@ btnNext3.addEventListener('click', async function(ev){
             mascota: localStorage.getItem("mascota"),
         });   
         document.getElementById("datosfecha-check").removeAttribute("style");
+        document.getElementById("datosfecha-check").parentNode.classList.add("active");
         localStorage.clear()
         const modal = document.getElementById("modalBox");
         modal.style.display = "block";
