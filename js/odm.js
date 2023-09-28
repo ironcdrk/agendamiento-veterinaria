@@ -1,12 +1,4 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js';
-
-import { getFirestore, doc, setDoc, getDoc,  } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js';
-
-import firebaseConfig from "./firebaseConfig.js";
-
-const app = initializeApp(firebaseConfig);
-
-const db = getFirestore(app);
+import { app, db, doc, setDoc, getDoc } from './dbConfig.js';
 
 export async function addCita(id, citaObj){
     
@@ -34,10 +26,10 @@ export async function getCita(id){
     try {
         const docSnap = await getDoc(doc(db, "citas", id.toString()));
         if (await docSnap.exists()) {
-            console.log("Document data:", await docSnap.data());
+            //console.log("Document data:", await docSnap.data());
             return await docSnap.data();
           } else {
-            console.log("No such document!");
+            //console.log("No such document!");
             return false;
           }
     } catch(error) {

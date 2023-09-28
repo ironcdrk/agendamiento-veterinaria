@@ -3,6 +3,8 @@ import { addAtencion, addCita } from './odm.js';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js';
 import { Calendar } from './calendar.js';
 
+import { disableBookedHoursbyDay } from './agendaValidations.js'
+
 
 const formClient = document.querySelector("#user-form");
 const sectionMascota = document.getElementById("section_mascota");
@@ -36,6 +38,67 @@ onAuthStateChanged(auth, function(user){
 });
 
 
+// Manejo de calendario
+
+new Calendar({date: null, container: ".calendar_numbers"});
+
+const daysnumber = document.querySelectorAll(".calendar_number");
+
+const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const dias = ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sábado'];
+
+const fecha = new Date();
+/*console.log("dia del mes: " + fecha.getDate());
+console.log("dia actual: " + dias[fecha.getDay()]);
+console.log("mes: " + meses[fecha.getMonth()]);*/
+
+daysnumber.forEach((element, key)=>{
+    element.addEventListener('click', async function(ev){
+        cleanBookedHours();
+        daysnumber.forEach((element, key)=>{element.classList.remove("calendar_number_selected");});
+        console.log("seting a day..");
+        const selectedfecha = new Date(fecha.getFullYear(),fecha.getMonth(),element.innerHTML);
+        element.classList.add("calendar_number_selected");
+        document.querySelector(".num_date").innerHTML=element.innerHTML;
+        document.querySelector(".calendar_lbldayofweek").innerHTML=dias[selectedfecha.getDay()];
+        await bookHours(selectedfecha);
+    });
+});
+
+const daysHour = document.querySelectorAll(".btn_horario");
+
+
+daysHour.forEach(async (element, key)=>{
+    element.addEventListener('click', function(ev){
+        daysHour.forEach((element, key)=>{element.classList.remove("btn_horario_selected");});
+        console.log("setting hour..");
+        console.log(element.textContent);
+        element.classList.add("btn_horario_selected");
+    });
+});
+
+
+
+// añadir estilo a fecha actual
+const diasCalendario= document.querySelectorAll(".calendar_number");
+diasCalendario.forEach((element)=>{
+    if(element.innerHTML==fecha.getDate()){
+        element.classList.add('calendar_number_selected');
+    }
+});
+
+const diaActual= document.querySelectorAll(".calendar_lblday");
+diaActual.forEach((element)=>{
+    element.innerHTML=fecha.getDate();
+});
+const diaSemanaActual= document.querySelectorAll(".calendar_lbldayofweek");
+diaSemanaActual.forEach((element)=>{
+    element.innerHTML=dias[fecha.getDay()];
+});
+const mesActual= document.querySelectorAll(".calendar_lblmonth");
+mesActual.forEach((element)=>{
+    element.innerHTML=meses[fecha.getMonth()];
+});
 
 formClient.addEventListener('submit', async function(ev){
     ev.preventDefault();
@@ -43,6 +106,7 @@ formClient.addEventListener('submit', async function(ev){
     let cedula=document.querySelector("#usuario").value;
     let nombre=document.querySelector("#nombre").value;
     let mascota=document.querySelector("#mascota").value;
+    let celular=document.querySelector("#celular").value;
     if (validarCedula(cedula)){
 
         sectionUsuario.setAttribute("style","display:none")
@@ -54,6 +118,7 @@ formClient.addEventListener('submit', async function(ev){
         localStorage.setItem("cedula", cedula);
         localStorage.setItem("nombre", nombre);
         localStorage.setItem("mascota", mascota);
+        localStorage.setItem("celular", celular);
         document.getElementById("datosgenerales-check").removeAttribute("style");
         
     }else{
@@ -71,8 +136,8 @@ async function getDogsBreed(){
 function buildRBDogsBreed(data){
     document.querySelector("#dogsbred-container").innerHTML = '';
     for (let key in data) {
-        console.log("Key:" + key);
-        console.log("Value:" + data[key]['nombre']);
+        //console.log("Key:" + key);
+        //console.log("Value:" + data[key]['nombre']);
         
         let label = document.createElement('label')
         label.setAttribute("class", "radiolabel");
@@ -97,10 +162,11 @@ function buildRBDogsBreed(data){
 
 
 const formDogsBreed = document.querySelector("#mascota-form");
-formDogsBreed.addEventListener('submit', function(ev){
+formDogsBreed.addEventListener('submit',async function(ev){
     ev.preventDefault();
     console.log("submitting..");
     let dogsbreed=document.querySelector("input[name='dogbreed']:checked");
+    
     if(dogsbreed) {
         let dogsbreedVal=dogsbreed.value;
         console.log(dogsbreedVal);
@@ -109,6 +175,7 @@ formDogsBreed.addEventListener('submit', function(ev){
         localStorage.setItem("raza", dogsbreedVal);
         document.getElementById("datosmascota-check").removeAttribute("style");
         document.getElementById("datosmascota-check").parentNode.classList.add("active");
+        await bookHours(new Date());
     } else {
         alert('No ha seleccionado ninguna raza');
     }
@@ -158,17 +225,14 @@ btnNext3.addEventListener('click', async function(ev){
             cedula: localStorage.getItem("cedula"), 
             raza: localStorage.getItem("raza"),
             nombre: localStorage.getItem("nombre"),
+            celular: localStorage.getItem("celular"),
             mascota: localStorage.getItem("mascota"),
         });   
         document.getElementById("datosfecha-check").removeAttribute("style");
         document.getElementById("datosfecha-check").parentNode.classList.add("active");
         localStorage.clear()
         const modal = document.getElementById("modalBox");
-        modal.style.display = "block";
-        setTimeout(() => {
-            modal.style.display = "none";
-            window.location="/";
-          }, 3000);
+        modal.style.display = "block";        
     }
     catch(error){
         alert("Su registro no pudo ser guardado");
@@ -176,78 +240,19 @@ btnNext3.addEventListener('click', async function(ev){
     }
 });
 
-
-
-// Manejo de calendario
-
-new Calendar({date: null, container: ".calendar_numbers"});
-
-const daysnumber = document.querySelectorAll(".calendar_number");
-
-const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-const dias = ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sábado'];
-
-
-daysnumber.forEach((element, key)=>{
-    element.addEventListener('click', function(ev){
-        daysnumber.forEach((element, key)=>{element.classList.remove("calendar_number_selected");});
-        console.log("seting a day..");
-        console.log(element);
-        element.classList.add("calendar_number_selected");
-        //document.querySelector(".num_date").innerHTML=element.innerHTML;
+async function bookHours(selectedDate){
+    const bookedHours = await disableBookedHoursbyDay(selectedDate);
+    /*console.log("bookedHours");
+    console.log(bookedHours);*/
+    //console.log(daysHour);
+    daysHour.forEach((element)=>{
+        bookedHours.forEach((el) => element.childNodes[1].data.trim() == el ? element.classList.add("booked_hour") : '' ); 
     });
-});
+}
 
-const daysHour = document.querySelectorAll(".btn_horario");
-daysHour.forEach((element, key)=>{
-    element.addEventListener('click', function(ev){
-        daysHour.forEach((element, key)=>{element.classList.remove("btn_horario_selected");});
-        console.log("setting hour..");
-        console.log(element.textContent);
-        element.classList.add("btn_horario_selected");
+
+function cleanBookedHours(){
+    daysHour.forEach((element)=>{
+        daysHour.forEach((el) => element.classList.remove("booked_hour")); 
     });
-});
-
-const fecha = new Date();
-console.log("dia del mes: " + fecha.getDate());
-console.log("dia actual: " + dias[fecha.getDay()]);
-console.log("mes: " + meses[fecha.getMonth()]);
-
-// añadir estilo a fecha actual
-const diasCalendario= document.querySelectorAll(".calendar_number");
-diasCalendario.forEach((element)=>{
-    if(element.innerHTML==fecha.getDate()){
-        element.classList.add('calendar_number_selected');
-    }
-});
-
-const diaActual= document.querySelectorAll(".calendar_lblday");
-diaActual.forEach((element)=>{
-    element.innerHTML=fecha.getDate();
-});
-const diaSemanaActual= document.querySelectorAll(".calendar_lbldayofweek");
-diaSemanaActual.forEach((element)=>{
-    element.innerHTML=dias[fecha.getDay()];
-});
-const mesActual= document.querySelectorAll(".calendar_lblmonth");
-mesActual.forEach((element)=>{
-    element.innerHTML=meses[fecha.getMonth()];
-});
-
-// function refreshSelectedDate(dia, mes, anio=2023){
-//     const fecha = new Date(anio, mes, dia);
-//     const diaActual= document.querySelectorAll(".calendar_lblday");
-//     diaActual.forEach((element, key)=>{
-//         element.innerHTML=dia;
-//     });
-//     const diaSemanaActual= document.querySelectorAll(".calendar_lbldayofweek");
-//     let index = dias[fecha.getDay()+1] ? fecha.getDay()+1 : 0;
-//     diaSemanaActual.forEach((element, key)=>{
-//         element.innerHTML=dias[index];
-//     });
-//     const mesActual= document.querySelectorAll(".calendar_lblmonth");
-//     mesActual.forEach((element, key)=>{
-//         element.innerHTML=meses[mes];
-//     });
-
-// }
+}

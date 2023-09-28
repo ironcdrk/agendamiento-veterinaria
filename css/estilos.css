@@ -2,7 +2,6 @@
 .section_subtitle{
     color: white;
     background-color: var(--thirdly);
-    max-width: 50%;
     justify-self: center;
 }
 .section_registro{
@@ -150,6 +149,7 @@
     padding: .8em .8em;
     border: none;
     border-radius: .5em;
+    cursor: pointer;
 }
 
 
