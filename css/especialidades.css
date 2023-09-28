@@ -1,3 +1,14 @@
+.section_cards{
+  grid-area: 1/1 / 1/5;  
+  background: white;
+  padding: 2em;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-auto-flow: dense;
+  grid-auto-rows: 30rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+}
 
 .cardbox-container{
     position: relative;
@@ -5,8 +16,8 @@
   
   .cardbox-container .card{
     position: relative;
-    width: 20vw;
-    height: 60vh;
+    width: 350px;
+    height: 40vh;
     background: var(--mainbackground);
     border-radius: 20px;
     overflow: hidden;

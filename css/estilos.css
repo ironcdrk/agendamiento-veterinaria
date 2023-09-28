@@ -2,6 +2,8 @@
 .section_subtitle{
     color: white;
     background-color: var(--thirdly);
+    max-width: 50%;
+    justify-self: center;
 }
 .section_registro{
     background-color: white;
@@ -122,6 +124,12 @@
     display: grid;
     gap: 2.5em
 }
+@media only screen and (max-width: 604px) {
+    
+    .appointment_container{
+        padding: 4.5em 0;
+    }
+  }
 
 .section_content{
     display: flex;
@@ -208,7 +216,7 @@
 #appointmentdate-container{
     display: grid;
     grid-auto-rows: 480px;
-    grid-template-columns: repeat(auto-fit,minmax(min(20vw,100%),1fr));
+    grid-template-columns: repeat(auto-fit,minmax(min(300px,100%),1fr));
 }
   
   
