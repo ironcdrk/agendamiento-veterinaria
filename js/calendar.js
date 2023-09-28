@@ -31,6 +31,7 @@ export class Calendar{
 
         let firstDayInWeek = this.monthStart.getDay();
         console.log("firstDayInWeek: "+firstDayInWeek);
+        console.log(this.date.getDate());
         const containerHtml=document.querySelector(this.container);
         let currentDay=1;
         for(let row=1; row<42; row++){
@@ -39,6 +40,9 @@ export class Calendar{
             if(row>=firstDayInWeek){
                 dayName.classList.add('calendar_number');
                 dayName.innerHTML=currentDay;
+                if(currentDay<this.date.getDate()){
+                    dayName.classList.add('booked_item');
+                }
                 currentDay++;
             }
             containerHtml.appendChild(dayName);

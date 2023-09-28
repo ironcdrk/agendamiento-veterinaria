@@ -246,13 +246,13 @@ async function bookHours(selectedDate){
     console.log(bookedHours);*/
     //console.log(daysHour);
     daysHour.forEach((element)=>{
-        bookedHours.forEach((el) => element.childNodes[1].data.trim() == el ? element.classList.add("booked_hour") : '' ); 
+        bookedHours.forEach((el) => element.childNodes[1].data.trim() == el ? element.classList.add("booked_item") : '' ); 
     });
 }
 
 
 function cleanBookedHours(){
     daysHour.forEach((element)=>{
-        daysHour.forEach((el) => element.classList.remove("booked_hour")); 
+        daysHour.forEach((el) => element.classList.remove("booked_item")); 
     });
 }

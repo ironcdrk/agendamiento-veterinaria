@@ -17,7 +17,7 @@
   .cardbox-container .card{
     position: relative;
     width: 350px;
-    height: 40vh;
+    height: 45vh;
     background: var(--mainbackground);
     border-radius: 20px;
     overflow: hidden;

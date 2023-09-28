@@ -99,8 +99,9 @@
     box-shadow: rgba(0, 0, 0, 0.22) 0px 10px 10px;
   }
 
-  .booked_hour {
+  .booked_item {
     color: gray;
     font-weight: bold;
     pointer-events: none;
+    opacity: 0.5;
   }
