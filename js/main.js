@@ -1,6 +1,5 @@
 import { validarCedula, getDatetimestamp } from './utils.js';
 import { addAtencion, addCita } from './odm.js';
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js';
 import { Calendar } from './calendar.js';
 
 import { disableBookedHoursbyDay } from './agendaValidations.js'
@@ -12,30 +11,7 @@ const sectionUsuario = document.getElementById("section_usuario");
 const sectionFechahora = document.getElementById("section_fechahora");
 
 
-const auth = getAuth();
 
-
-async function initSession(){
-    try{
-        const provider = new GoogleAuthProvider();
-        return await signInWithPopup(auth,provider);
-    }
-    catch(error){
-        console.log(error);
-    }
-}
-
-const loginButton = document.querySelector('#btnloginGoogle');
-
-loginButton?.addEventListener('click', function(ev){
-    initSession();
-});
-
-onAuthStateChanged(auth, function(user){
-    if(user){
-        window.location="dashboard.html";
-    }
-});
 
 
 // Manejo de calendario
