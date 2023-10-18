@@ -1,5 +1,5 @@
 import { validarCedula, getDatetimestamp } from './utils.js';
-import { addAtencion, addCita } from './odm.js';
+import { addCita } from './odm.js';
 import { Calendar } from './calendar.js';
 
 import { disableBookedHoursbyDay } from './agendaValidations.js'
@@ -9,9 +9,7 @@ const formClient = document.querySelector("#user-form");
 const sectionMascota = document.getElementById("section_mascota");
 const sectionUsuario = document.getElementById("section_usuario");
 const sectionFechahora = document.getElementById("section_fechahora");
-
-
-
+const closeModalButton = document.querySelector(".close");
 
 
 // Manejo de calendario
@@ -232,3 +230,12 @@ function cleanBookedHours(){
         daysHour.forEach((el) => element.classList.remove("booked_item")); 
     });
 }
+
+closeModalButton.addEventListener('click', function(){
+   
+    closeModalButton.closest("dialog").close();
+    setTimeout(() => {
+        window.location.href="/";
+    }, "2000");
+    
+});
