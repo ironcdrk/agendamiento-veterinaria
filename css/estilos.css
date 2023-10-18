@@ -219,6 +219,139 @@
     grid-template-columns: repeat(auto-fit,minmax(min(300px,100%),1fr));
 }
   
+ /* The Close Button */
+ .close {
+    background: none;
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    border: none;
+  }
   
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 10px;
+    background-image: linear-gradient(195deg,#42424a,#191919);
+    color: white;
+  }
+  
+  .modal-body {
+    padding: 20px;
+    font-size: 1em;
+    color: var(--primary);
+    display: inline-flex;
+    flex-direction: column;
+    gap: 2.5em;
+    width: 100%;
+    height: 250px;
+    justify-content: end;
+}  
+
+
+/*----------------------------------------
+	Cards
+------------------------------------------*/
+.card {
+    position: relative;
+    margin: .5rem 0 1rem 0;
+    background-color: #fff;
+    border-radius: 2px;
+  }
+  
+  .card.sm{
+    width: 20rem;
+  }
+  .card .card-img {
+    padding: 24px;
+    border-radius: 0 0 2px 2px;
+  }
+  .card .card-content {
+    padding: 24px;
+    border-radius: 0 0 2px 2px;
+  }
+  /*----------------------------------------
+      infografia
+  ------------------------------------------*/
+  
+  .infographic{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    max-width: 460px;
+    justify-self: center;
+  }
+  
+  .whitegd {
+    background: var(--whitegradient);
+  }
+  .bluegd {
+    background: var(--bluegradient);
+  }
+  
+  .greengd {
+    background: var(--greengradient);
+  }
+  .pinkgd {
+    background: var(--pinkgradient);
+  }
+  .yellowgd {
+    background: var(--yellowgradient);
+  }
+  .orangegd {
+    background: var(--orangegradient);
+  }
+  
+  .infographic img{
+    height:100%;
+    width:100%;
+  }
+  .infographic .title{
+    position: absolute;
+    top: 10px;
+    background: inherit;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    height: 50px;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .infographic .content{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: inherit;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-height: 150px;
+  
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  
+  .section{
+    /*box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);*/
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
   
   
