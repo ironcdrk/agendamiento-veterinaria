@@ -182,7 +182,7 @@ btnNext3.addEventListener('click', async function(ev){
     const daySelectedItem=document.querySelector(".calendar_number_selected");
     const horaSelectedItem=document.querySelector(".btn_horario_selected");
     const daySelected = parseInt(daySelectedItem.innerHTML);   
-    const diatimestamp=getDatetimestamp(daySelected, meses.findIndex((m)=>m===mesSelected)+1, 2023);
+    const diatimestamp=getDatetimestamp(daySelected, meses.findIndex((m)=>m===mesSelected)+1, new Date().getFullYear());
     let citatimestamp=null;
     console.log("diatimestamp");
     console.log(diatimestamp);
@@ -190,8 +190,8 @@ btnNext3.addEventListener('click', async function(ev){
         const horaSelected = horaSelectedItem.textContent.trim();
         const h = horaSelected.split(':')[0];
         const m = horaSelected.split(':')[1];   
-        citatimestamp=getDatetimestamp(daySelected, meses.findIndex((m)=>m===mesSelected)+1, 2023, h,m );
-        const dateFormat = daySelected +"-"+ (meses.findIndex((m)=>m===mesSelected)+1) + "-" + "2023";
+        citatimestamp=getDatetimestamp(daySelected, meses.findIndex((m)=>m===mesSelected)+1, new Date().getFullYear(), h,m );
+        const dateFormat = daySelected +"-"+ (meses.findIndex((m)=>m===mesSelected)+1) + "-" + new Date().getFullYear();
         const timeFormat = h +":"+m;
         localStorage.setItem("fecha", dateFormat);
         localStorage.setItem("hora", timeFormat);
