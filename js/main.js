@@ -35,7 +35,7 @@ daysnumber.forEach((element, key)=>{
         element.classList.add("calendar_number_selected");
         document.querySelector(".num_date").innerHTML=element.innerHTML;
         document.querySelector(".calendar_lbldayofweek").innerHTML=dias[selectedfecha.getDay()];
-        //await bookHours(selectedfecha);
+        await bookHours(selectedfecha);
     });
 });
 
@@ -149,7 +149,7 @@ formDogsBreed.addEventListener('submit',async function(ev){
         localStorage.setItem("raza", dogsbreedVal);
         document.getElementById("datosmascota-check").removeAttribute("style");
         document.getElementById("datosmascota-check").parentNode.classList.add("active");
-        //await bookHours(new Date());
+        await bookHours(new Date());
     } else {
         alert('No ha seleccionado ninguna raza');
     }
@@ -222,8 +222,8 @@ btnNext3.addEventListener('click', async function(ev){
 
 async function bookHours(selectedDate){
     const bookedHours = await disableBookedHoursbyDay(selectedDate);
-    /*console.log("bookedHours");
-    console.log(bookedHours);*/
+    console.log("bookedHours");
+    console.log(bookedHours);
     //console.log(daysHour);
     daysHour.forEach((element)=>{
         bookedHours.forEach((el) => element.childNodes[1].data.trim() == el ? element.classList.add("booked_item") : '' ); 

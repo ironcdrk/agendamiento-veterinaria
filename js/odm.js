@@ -1,4 +1,4 @@
-import { app, db, doc, setDoc, getDoc, updateDoc } from './dbConfig.js';
+import { app, db, doc, setDoc, getDoc, getDocs, updateDoc, collection, query, where } from './dbConfig.js';
 
 export async function addCita(id, dataObj){
 
@@ -31,11 +31,27 @@ export async function searchCita(id){
 
 export async function getCita(date, id){
     try {
+        const citasRef = collection(db, "citas");
+        // Create a query against the collection.
+        const q = query(citasRef, where("mapArray.map.stringField", "==", "1700283600000"));
+        //const q = query(citasRef, where("id", "==", 1700283600000));
+        const querySnapshot = await getDocs(q);
+        console.log(querySnapshot);
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+        });
+
         const docSnap = await getDoc(doc(db, "citas", date.toString()));
+        //const docSnap = db.collection('citas').where('id', "==", date.toString());
+        //console.log(docSnap);
         if (await docSnap.exists()) {
+            console.log("do exists");
             //console.log("Document data:", await docSnap.data());
-            return await docSnap.data();
-            //let citas = await docSnap.data();
+            console.log(
+            db.collection('citas')//.where('memberId', "==", currentMemberId)
+            .where("mapArray.map.stringField", "==", id.toString()));
+            return await docSnap.data();            
 
           } else {
             //console.log("No such document!");
