@@ -29,7 +29,7 @@ export function validaCita(hora,fecha){
     
 }
 
-export function getDatetimestamp(dia, mes, anio, hora, minuto){
+export function getDatetimestamp(dia, mes, anio, hora=0, minuto=0){
     //console.log(anio, mes, dia, hora, minuto);
     const fecha = new Date(anio, mes, dia, hora, minuto);
     //console.log(fecha.getTime());

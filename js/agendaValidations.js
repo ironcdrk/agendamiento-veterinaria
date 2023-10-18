@@ -13,7 +13,7 @@ export async function disableBookedHoursbyDay(selecteddate){
             /*console.log( "hmarray[i]");
             console.log( hmarray[i]);*/
             const id = getDatetimestamp( date.getDate() , date.getMonth()+1, date.getFullYear(), hmarray[i].h, hmarray[i].m);
-            let bookedcita = await getCita(id);
+            let bookedcita = await getCita(date, id);
             /*console.log( "bookedcita");
             console.log( bookedcita);*/
             if(bookedcita){

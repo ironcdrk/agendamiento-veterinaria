@@ -35,7 +35,7 @@ daysnumber.forEach((element, key)=>{
         element.classList.add("calendar_number_selected");
         document.querySelector(".num_date").innerHTML=element.innerHTML;
         document.querySelector(".calendar_lbldayofweek").innerHTML=dias[selectedfecha.getDay()];
-        await bookHours(selectedfecha);
+        //await bookHours(selectedfecha);
     });
 });
 
@@ -149,7 +149,7 @@ formDogsBreed.addEventListener('submit',async function(ev){
         localStorage.setItem("raza", dogsbreedVal);
         document.getElementById("datosmascota-check").removeAttribute("style");
         document.getElementById("datosmascota-check").parentNode.classList.add("active");
-        await bookHours(new Date());
+        //await bookHours(new Date());
     } else {
         alert('No ha seleccionado ninguna raza');
     }
@@ -181,27 +181,33 @@ btnNext3.addEventListener('click', async function(ev){
     const mesSelected=document.querySelector(".calendar_lblmonth").innerHTML;
     const daySelectedItem=document.querySelector(".calendar_number_selected");
     const horaSelectedItem=document.querySelector(".btn_horario_selected");
+    const daySelected = parseInt(daySelectedItem.innerHTML);   
+    const diatimestamp=getDatetimestamp(daySelected, meses.findIndex((m)=>m===mesSelected)+1, 2023);
+    let citatimestamp=null;
+    console.log("diatimestamp");
+    console.log(diatimestamp);
     if(horaSelectedItem && daySelectedItem){
         const horaSelected = horaSelectedItem.textContent.trim();
         const h = horaSelected.split(':')[0];
-        const m = horaSelected.split(':')[1];
-        const daySelected = parseInt(daySelectedItem.innerHTML);      
-        const citatimestamp=getDatetimestamp(daySelected, meses.findIndex((m)=>m===mesSelected)+1, 2023, h,m );
-        localStorage.setItem("datetime", citatimestamp);
+        const m = horaSelected.split(':')[1];   
+        citatimestamp=getDatetimestamp(daySelected, meses.findIndex((m)=>m===mesSelected)+1, 2023, h,m );
+        const datetimeFormat = daySelected +"-"+ (meses.findIndex((m)=>m===mesSelected)+1) + "-" + "2023 " + h +":"+m;
+        localStorage.setItem("datetime", datetimeFormat);
         console.log("timestampId => "+citatimestamp);
     }
     else{
         alert("No ha seleccionado una hora");
     }
     try{
-        await addCita(localStorage.getItem("datetime"),{ 
+        const docData = { [citatimestamp]: {
             fecha: localStorage.getItem("datetime"), 
             cedula: localStorage.getItem("cedula"), 
             raza: localStorage.getItem("raza"),
             nombre: localStorage.getItem("nombre"),
             celular: localStorage.getItem("celular"),
             mascota: localStorage.getItem("mascota"),
-        });   
+        }  } ;      
+        await addCita(diatimestamp.toString(),docData);   
         document.getElementById("datosfecha-check").removeAttribute("style");
         document.getElementById("datosfecha-check").parentNode.classList.add("active");
         localStorage.clear()

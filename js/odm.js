@@ -1,10 +1,17 @@
-import { app, db, doc, setDoc, getDoc } from './dbConfig.js';
+import { app, db, doc, setDoc, getDoc, updateDoc } from './dbConfig.js';
 
-export async function addCita(id, citaObj){
-    
-    await setDoc(doc(db, "citas", id), {
-        citaObj
-    });
+export async function addCita(id, dataObj){
+
+    const docRef = doc(db, "citas", id);
+    if(docRef){
+       await setDoc(docRef, dataObj, { merge: true });
+    }
+    else{
+        await setDoc(doc(db, "citas", id), 
+        dataObj
+    );
+    }
+
 }
 
 export async function searchCita(id){
@@ -22,12 +29,14 @@ export async function searchCita(id){
 }
 
 
-export async function getCita(id){
+export async function getCita(date, id){
     try {
-        const docSnap = await getDoc(doc(db, "citas", id.toString()));
+        const docSnap = await getDoc(doc(db, "citas", date.toString()));
         if (await docSnap.exists()) {
             //console.log("Document data:", await docSnap.data());
             return await docSnap.data();
+            //let citas = await docSnap.data();
+
           } else {
             //console.log("No such document!");
             return false;
