@@ -182,7 +182,7 @@ btnNext3.addEventListener('click', async function(ev){
     const daySelectedItem=document.querySelector(".calendar_number_selected");
     const horaSelectedItem=document.querySelector(".btn_horario_selected");
     const daySelected = parseInt(daySelectedItem.innerHTML);   
-    const diatimestamp=getDatetimestamp(daySelected, meses.findIndex((m)=>m===mesSelected)+1, 2023);
+    const diatimestamp=getDatetimestamp(daySelected, meses.findIndex((m)=>m===mesSelected)+1, new Date().getFullYear());
     let citatimestamp=null;
     console.log("diatimestamp");
     console.log(diatimestamp);
@@ -190,24 +190,26 @@ btnNext3.addEventListener('click', async function(ev){
         const horaSelected = horaSelectedItem.textContent.trim();
         const h = horaSelected.split(':')[0];
         const m = horaSelected.split(':')[1];   
-        citatimestamp=getDatetimestamp(daySelected, meses.findIndex((m)=>m===mesSelected)+1, 2023, h,m );
-        const datetimeFormat = daySelected +"-"+ (meses.findIndex((m)=>m===mesSelected)+1) + "-" + "2023 " + h +":"+m;
-        localStorage.setItem("datetime", datetimeFormat);
-        console.log("timestampId => "+citatimestamp);
+        citatimestamp=getDatetimestamp(daySelected, meses.findIndex((m)=>m===mesSelected)+1, new Date().getFullYear(), h,m );
+        const dateFormat = daySelected +"-"+ (meses.findIndex((m)=>m===mesSelected)+1) + "-" + new Date().getFullYear();
+        const timeFormat = h +":"+m;
+        localStorage.setItem("fecha", dateFormat);
+        localStorage.setItem("hora", timeFormat);
     }
     else{
         alert("No ha seleccionado una hora");
     }
     try{
-        const docData = { [citatimestamp]: {
-            fecha: localStorage.getItem("datetime"), 
+        const docData = { 
+            fecha: localStorage.getItem("fecha"), 
+            hora: localStorage.getItem("hora"), 
             cedula: localStorage.getItem("cedula"), 
             raza: localStorage.getItem("raza"),
-            nombre: localStorage.getItem("nombre"),
+            propietario: localStorage.getItem("nombre"),
             celular: localStorage.getItem("celular"),
             mascota: localStorage.getItem("mascota"),
-        }  } ;      
-        await addCita(diatimestamp.toString(),docData);   
+        } ;      
+        await addCita(citatimestamp,docData);   
         document.getElementById("datosfecha-check").removeAttribute("style");
         document.getElementById("datosfecha-check").parentNode.classList.add("active");
         localStorage.clear()
@@ -215,16 +217,13 @@ btnNext3.addEventListener('click', async function(ev){
         modal.style.display = "block";        
     }
     catch(error){
-        alert("Su registro no pudo ser guardado");
+        alert("Ocurrió un error !! su registro no pudo ser guardado");
         console.log(error);
     }
 });
 
 async function bookHours(selectedDate){
     const bookedHours = await disableBookedHoursbyDay(selectedDate);
-    console.log("bookedHours");
-    console.log(bookedHours);
-    //console.log(daysHour);
     daysHour.forEach((element)=>{
         bookedHours.forEach((el) => element.childNodes[1].data.trim() == el ? element.classList.add("booked_item") : '' ); 
     });

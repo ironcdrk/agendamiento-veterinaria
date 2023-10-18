@@ -1,5 +1,4 @@
-import { app, db } from './dbConfig.js';
-import { getCita } from './odm.js';
+import { searchCita } from './odm.js';
 import { getDatetimestamp } from './utils.js';
 
 export async function disableBookedHoursbyDay(selecteddate){
@@ -9,13 +8,8 @@ export async function disableBookedHoursbyDay(selecteddate){
         let date = selecteddate|| new Date();
         let bookedHours=[];
         for(let i=0; i<hmarray.length;i++){
-            //forEach(async element => {
-            /*console.log( "hmarray[i]");
-            console.log( hmarray[i]);*/
-            let id = getDatetimestamp( date.getDate() , date.getMonth()+1, date.getFullYear(), hmarray[i].h, hmarray[i].m);
-            let bookedcita = await getCita(date, id);
-            /*console.log( "bookedcita");
-            console.log( bookedcita);*/
+            const id = getDatetimestamp( date.getDate() , date.getMonth()+1, date.getFullYear(), hmarray[i].h, hmarray[i].m);
+            let bookedcita = await searchCita(id);
             if(bookedcita){
                 bookedHours.push(hmarray[i].h+":"+hmarray[i].m);
             }
