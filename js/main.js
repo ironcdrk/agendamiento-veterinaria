@@ -87,7 +87,7 @@ formClient.addEventListener('submit', async function(ev){
         sectionMascota.removeAttribute("style");
         
         const data = await getDogsBreed();
-        buildRBDogsBreed(data['dogsbred']);
+        buildRBDogsBreed(data['dogsbreed']);
 
         localStorage.setItem("cedula", cedula);
         localStorage.setItem("nombre", nombre);
@@ -101,17 +101,21 @@ formClient.addEventListener('submit', async function(ev){
 });
 
 async function getDogsBreed(){
-    const request = await fetch('https://run.mocky.io/v3/26d3bd34-6a01-47d2-9da3-0329ac8d18a8',{
+    //const request = await fetch('https://run.mocky.io/v3/26d3bd34-6a01-47d2-9da3-0329ac8d18a8',{
+    
+    const request = await fetch('https://run.mocky.io/v3/b79127a4-4be3-4e6c-b164-7e6125daa6b2',{    
             method: 'GET',
         })
-    return await request.json();
+    let response = await request.json();
+    console.log(response);
+    return response;
 }
 
 function buildRBDogsBreed(data){
     document.querySelector("#dogsbred-container").innerHTML = '';
     for (let key in data) {
-        //console.log("Key:" + key);
-        //console.log("Value:" + data[key]['nombre']);
+        console.log("Key:" + key);
+        console.log("Value:" + data[key]);
         
         let label = document.createElement('label')
         label.setAttribute("class", "radiolabel");
@@ -120,14 +124,14 @@ function buildRBDogsBreed(data){
         let elemento = document.createElement('input');
         elemento.setAttribute("type", "radio");
         elemento.setAttribute("name", "dogbreed");
-        elemento.setAttribute("value", data[key]['nombre']);
+        elemento.setAttribute("value", data[key]);
         label.appendChild(elemento);
 
         let span=document.createElement('span');
         span.setAttribute("class", "radiocheck");
         label.appendChild(span);  
 
-        let description = document.createTextNode(data[key]['nombre']);
+        let description = document.createTextNode(data[key]);
         label.appendChild(description);      
 
         document.querySelector("#dogsbred-container").appendChild(label);
