@@ -43,7 +43,7 @@
 
 
 .calendar_date {
-  padding: 20px;
+  padding: 8px 18px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
   grid-gap: 10px;
@@ -94,7 +94,7 @@
 .calendar_number_selected,
 .calendar_number:hover {
   /* background-color: #009688; */
-  background-color: #0071CE;
+  background-color: var(--secondly);
   color: #fff !important;
   font-weight: 700;
   cursor: pointer;

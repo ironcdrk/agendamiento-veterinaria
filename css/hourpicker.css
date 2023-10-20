@@ -1,14 +1,10 @@
-* {
-   --bg-calendar: #0071CE;
-}
-
 .calendar-left {
     width: 300px;
     height: 450px;
     /* border-radius: 20px 0px 0px 20px; */
 
     border-radius: 20px;
-    background-color: var(--bg-calendar); 
+    background-color: var(--primary); 
     /* position: relative; */
     /* z-index: -1; */
     /* bottom: 500px; */
@@ -18,9 +14,9 @@
   
   
   .num_date {
-    font-size: 150px;
+    font-size: 6rem;
     width: 50%;
-    margin: 0 auto;
+    margin: 1rem auto;
     font-weight: 700;
   }
 
@@ -69,10 +65,7 @@
     bottom: 10px;
   }
   
-  .add:hover, .create-event:hover, .add-event:hover{
-    color:#27e879 !important;
-    border-color: #27e879 !important;
-  }
+  
   .horarios{
     background: white;
     border-color: #aaaab1;
@@ -96,7 +89,7 @@
   
   .btn_horario_selected,
   .btn_horario:hover{
-    color: #0071CE;
+    color: var(--secondly);
     /* color: white; */
     font-weight: 700;
     /* background-color: #0071CE; */
@@ -104,4 +97,11 @@
     transform: scale(1.1);
     border: 1px solid #AAAAB1;
     box-shadow: rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  }
+
+  .booked_item {
+    color: gray;
+    font-weight: bold;
+    pointer-events: none;
+    opacity: 0.5;
   }

@@ -1,10 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Bangers|Cinzel:400,700,900|Lato:100,300,400,700,900|Lobster|Lora:400,700|Mansalva|Muli:200,300,400,600,700,800,900|Open+Sans:300,400,600,700,800|Oswald:200,300,400,500,600,700|Roboto:100,300,400,500,700,900&display=swap');
 
-:root {
-    --bluebtn: #3866f2;
-    --bluecolor: #0071CE;
-  }
 * {
     margin: 0;
     padding: 0;
@@ -14,55 +10,75 @@ body{
     font-family: 'Spartan', sans-serif;    
     background-color: #f0f2f5;
 }
-
-.container{
-    padding-top: 140px;
-}
-.section{
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
-}
 .aside{
     grid-area: 1 / 1 / 5 / 3;
-    /* grid-area: aside */
-    color: white;
-    background-image: linear-gradient(195deg,#42424a,#191919);
-    display: flex;
+    grid-area: 1 / 1 / 5 / 1;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: #0f0e17;
+    display: inline-flex;
     flex-direction: column;
-    /* justify-content: space-between; */
+    justify-content: space-around;
     padding: 1rem;
     position: relative;
-    border-radius: 15px;
-    margin: 5px;
+    margin-left: 3vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
 
 }
-
+#progressbar{
+    counter-reset: container 0;
+  }
 .aside > ul {
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 1em;
-    top: 10px;
+    gap: 5em;
     list-style: none;
     
   }
   .aside > ul > li {
-    width: 100%;
-  }
-  .aside > ul > li > a{   
-    /* display: block; */
     min-width: fit-content;
     text-decoration: none;
-    color: white;
-    padding: 15px;
-    font-size: 18px;
+    position: relative;
+    color: var(--secondly);
+    font-size: 1rem;
     display: flex;
+    flex-direction: row;
     gap: 1em;
-  }
-  .aside > ul > li >a:hover{
-    background-color: #0071CE;
+    background-color: rgba(0, 0, 0, .1);;
     border-radius: 5px;
+    padding: 15px 25%;
+    margin: 0;
   }
+  .aside > ul > li::before {
+    content: counter(container);
+    text-align: center;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border: 3px solid var(--secondly);
+    border-radius: 50%;
+    counter-increment: container 1;
+    top: -6vh;
+    left: 0.05vw;
+    font-size: 1.5em;
+  }
+  .aside > ul > li.active{
+    color: white;
+  }
+  .aside > ul > li.active::before{
+    border: 3px solid white;
+  }
+  .aside > ul > li > a > i{
+    align-self: center;
+  }   
+  .aside-legend{
+    font-size: 1rem;
+    display: none;
+  }
+
+  
   
 hr{
     height: 2px;
@@ -72,15 +88,79 @@ hr{
     opacity: .25;
 }
 
+.fa-lg{
+  line-height: unset;
+}
+
+
+@media only screen and (max-width: 1270px) {
+  .aside > ul > li{   
+    flex-direction: column;
+  }  
+
+  .aside-legend{
+    font-size: .9rem;
+  }
+}
+
+@media only screen and (min-width: 1540px) {
+  #progressbar li a:after {
+    display: block;
+  } 
+  .aside > ul > li{   
+    padding: 15px;
+    margin: 10%;
+  }
+}
+@media only screen and (min-width: 1001px) and (max-width: 1539px){
+  .aside > ul > li{   
+    padding: 15px;
+    margin: 8%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .aside-legend{
+    display: block;
+  }
+  .aside > ul > li::before{
+    left: 4vw;
+  }  
+  .aside > ul > li{   
+    padding: 15px;
+  }
+  
+}
+@media only screen and (min-width: 850px) and (max-width: 999px) {
+  .aside > ul > li::before{
+    left: 3vw;
+  }  
+}
+
+@media only screen and (min-width: 600px) and (max-width: 849px) {
+  .aside > ul > li::before{
+    left: 2vw;
+  }  
+  .aside > ul > li{   
+    padding: 15px;
+    margin: 10%;
+  }
+}
 
 
 .dashboard{
     grid-area: 1 / 3 / 5 / 13;
-    min-height: 500px;
+    grid-area: 1 / 2 / 5 / 13;
+    background: white;
+    border-radius: 5px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-top: 10%;
+    margin-right: 3vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    /*min-height: 500px;*/
     padding: 2rem 0;
     /* TODO: revisar que no afecte a los calendarios*/
     display: flex;
     flex-direction: column;
-
 }
-

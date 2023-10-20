@@ -1,17 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Bangers|Cinzel:400,700,900|Lato:100,300,400,700,900|Lobster|Lora:400,700|Mansalva|Muli:200,300,400,600,700,800,900|Open+Sans:300,400,600,700,800|Oswald:200,300,400,500,600,700|Roboto:100,300,400,500,700,900&display=swap');
 
-:root {
-    --bluebtn: #3866f2;
-    --bluecolor: #0071CE;
-    --purplegray: #6f72a8;
-    --bluegradient: rgba(25, 131, 223, 0.75);
-    --greengradient: rgba(71, 223, 25, 0.75);
-    --pinkgradient: rgba(223, 25, 213, 0.75);
-    --yellowgradient:  rgba(220, 223, 25, 0.75);
-    --orangegradient:   rgba(223, 109, 25, 0.75);
-    --whitegradient:   rgba(255, 255, 255, 0.75);
-  }
 * {
     margin: 0;
     padding: 0;
@@ -26,7 +15,7 @@ body{
     min-height: 100vh;
     margin: 0 auto;
     display: grid;
-    padding-top: 70px;
+    padding-top: 10vh;
     grid-template-columns: repeat(12, 1fr);
     /*grid-template-rows: repeat(3, 1fr);*/
     grid-template-areas: 
@@ -55,6 +44,30 @@ body{
   background-repeat: no-repeat;
   grid-column: 1/5;
   min-width: 405px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 2em;
+}
+.logo-holder{
+  text-align:center;
+  margin-left: 23px;
+}
+
+.logo-mb h3 {
+  color: var(--whitegradient);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 50px;
+}
+.logo-mb p {
+  font-size: 14px;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+  background: var(--secondly);
+  font-weight: 400;
+  color: #fff;
+  padding-left: 5px;
 }
 .secondbanner {
   background-image: url("../assets/img/secondbanner.jpg");
@@ -69,7 +82,7 @@ body{
   gap: 10%;
 }
 .secondbanner .title{
-  color: var(--bluecolor);
+  color: var(--secondly);
   padding: 10%;
   font-size: 1.8rem;
   font-weight: bold;
@@ -132,7 +145,7 @@ body{
   animation-play-state: paused;
 }
 .staff .review h1{
-  color: var(--bluecolor);
+  color: var(--secondly);
 }
 .staff .review p{
   color: var(--purplegray);
@@ -173,14 +186,15 @@ body{
 	General button
 ------------------------------------------*/
 .btn{
-  background-color: var(--bluebtn);
+  background-color: var(--primary);
   color: white;
   font-family: inherit;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   padding: .5em 1em;
   border: none;
   border-radius: .5em;
+  cursor: pointer;
 }
 
 /*----------------------------------------
@@ -351,22 +365,13 @@ hr{
     font-family: 'Oswald', sans-serif;
 }
 
-.btn-floating{
-    color: white;
-    font-size: 1rem;
-    background-color: var(--bluebtn);
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
-    border-radius: 50%;
-    padding: 12px;
-    cursor: pointer;
-}
 
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 40vh; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -389,6 +394,8 @@ hr{
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s;
+    display: flex;
+    flex-direction: column;
   }
   
   /* Add Animation */
@@ -402,118 +409,3 @@ hr{
     to {top:0; opacity:1}
   }
   
-  /* The Close Button */
-  .close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .modal-header {
-    padding: 10px;
-    background-image: linear-gradient(195deg,#42424a,#191919);
-    color: white;
-  }
-  
-  .modal-body {
-    padding: 20px;
-    font-size: 1.2em;
-    color: green;
-}  
-/*----------------------------------------
-	Cards
-------------------------------------------*/
-.card {
-  position: relative;
-  margin: .5rem 0 1rem 0;
-  background-color: #fff;
-  border-radius: 2px;
-}
-
-.card.sm{
-  width: 20rem;
-}
-.card .card-img {
-  padding: 24px;
-  border-radius: 0 0 2px 2px;
-}
-.card .card-content {
-  padding: 24px;
-  border-radius: 0 0 2px 2px;
-}
-/*----------------------------------------
-	infografia
-------------------------------------------*/
-
-.infographic{
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  max-width: 460px;
-  justify-self: center;
-}
-
-.whitegd {
-  background: var(--whitegradient);
-}
-.bluegd {
-  background: var(--bluegradient);
-}
-
-.greengd {
-  background: var(--greengradient);
-}
-.pinkgd {
-  background: var(--pinkgradient);
-}
-.yellowgd {
-  background: var(--yellowgradient);
-}
-.orangegd {
-  background: var(--orangegradient);
-}
-
-.infographic img{
-  height:100%;
-  width:100%;
-}
-.infographic .title{
-  position: absolute;
-  top: 10px;
-  background: inherit;
-  color: white;
-  font-size: 2rem;
-  font-weight: bold;
-  height: 50px;
-  align-content: center;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-.infographic .content{
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: inherit;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: bold;
-  min-height: 150px;
-
-  display: flex;  
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
