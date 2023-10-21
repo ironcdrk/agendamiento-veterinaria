@@ -243,7 +243,7 @@ function cleanBookedHours(){
 closeModalButton.addEventListener('click', function(){
    
     closeModalButton.closest("dialog").close();
-    setTimeout(() => {
+    setTimeout(function() {
         window.location.href="index.html";
     }, "2000");
     
