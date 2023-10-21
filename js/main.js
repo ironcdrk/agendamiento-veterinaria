@@ -244,7 +244,7 @@ closeModalButton.addEventListener('click', function(){
    
     closeModalButton.closest("dialog").close();
     setTimeout(() => {
-        window.location.href="/";
+        window.location.href="index.html";
     }, "2000");
     
 });
