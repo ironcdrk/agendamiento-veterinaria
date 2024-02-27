@@ -56,18 +56,18 @@ daysHour.forEach(async (element, key)=>{
 // añadir estilo a fecha actual
 const diasCalendario= document.querySelectorAll(".calendar_number");
 diasCalendario.forEach((element)=>{
-    if(element.innerHTML==fecha.getDate()){
+    if(element.innerHTML==fecha.getDate()+1){
         element.classList.add('calendar_number_selected');
     }
 });
 
 const diaActual= document.querySelectorAll(".calendar_lblday");
 diaActual.forEach((element)=>{
-    element.innerHTML=fecha.getDate();
+    element.innerHTML=fecha.getDate()+1;
 });
 const diaSemanaActual= document.querySelectorAll(".calendar_lbldayofweek");
 diaSemanaActual.forEach((element)=>{
-    element.innerHTML=dias[fecha.getDay()];
+    element.innerHTML=dias[fecha.getDay()+1];
 });
 const mesActual= document.querySelectorAll(".calendar_lblmonth");
 mesActual.forEach((element)=>{
